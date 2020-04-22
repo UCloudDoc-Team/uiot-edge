@@ -1,35 +1,35 @@
-# [使用指南](iot/uiot-edge/使用指南)
+# [使用指南](/uiot-edge/使用指南)
 
-- [使用流程概述](iot/uiot-edge/使用流程概述.md)
+- [使用流程概述](/uiot-edge/使用流程概述.md)
 
-- [创建网关及子设备](iot/uiot-edge/创建网关及子设备)
-- [创建网关](iot/uiot-edge/创建网关及子设备/创建网关.md)
-  - [创建子设备](iot/uiot-edge/创建网关及子设备/创建子设备.md)
-  - [关联子设备](iot/uiot-edge/创建网关及子设备/关联子设备.md)
-  - [网关管理](iot/uiot-edge/创建网关及子设备/网关管理.md)
+- [创建网关及子设备](/uiot-edge/创建网关及子设备)
+- [创建网关](/uiot-edge/创建网关及子设备/创建网关.md)
+  - [创建子设备](/uiot-edge/创建网关及子设备/创建子设备.md)
+  - [关联子设备](/uiot-edge/创建网关及子设备/关联子设备.md)
+  - [网关管理](/uiot-edge/创建网关及子设备/网关管理.md)
   
-- [安装网关软件](iot/uiot-edge/安装网关软件)
-- [安装软件](iot/uiot-edge/安装网关软件/安装软件.md)
+- [安装网关软件](/uiot-edge/安装网关软件)
+- [安装软件](/uiot-edge/安装网关软件/安装软件.md)
   
-- [子设备接入](iot/uiot-edge/子设备接入)
+- [子设备接入](/uiot-edge/子设备接入)
 
-  - [概览](iot/uiot-edge/子设备接入/概览.md)
-  - [驱动开发及添加](iot/uiot-edge/子设备接入/驱动开发及添加.md)
-  - [分配驱动](iot/uiot-edge/子设备接入/分配驱动.md)
-  - [子设备接入协议](iot/uiot-edge/子设备接入/子设备接入协议.md)
+  - [概览](/uiot-edge/子设备接入/概览.md)
+  - [驱动开发及添加](/uiot-edge/子设备接入/驱动开发及添加.md)
+  - [分配驱动](/uiot-edge/子设备接入/分配驱动.md)
+  - [子设备接入协议](/uiot-edge/子设备接入/子设备接入协议.md)
 
-- [添加边缘计算](iot/uiot-edge/添加边缘计算)
+- [添加边缘计算](/uiot-edge/添加边缘计算)
 
-  - [概览](iot/uiot-edge/添加边缘计算/概览.md)
-  - [函数开发及添加](iot/uiot-edge/添加边缘计算/函数开发及添加.md)
-  - [运行函数计算](iot/uiot-edge/添加边缘计算/运行函数计算.md)
+  - [概览](/uiot-edge/添加边缘计算/概览.md)
+  - [函数开发及添加](/uiot-edge/添加边缘计算/函数开发及添加.md)
+  - [运行函数计算](/uiot-edge/添加边缘计算/运行函数计算.md)
 
-- [设置消息路由](iot/uiot-edge/设置消息路由)
+- [设置消息路由](/uiot-edge/设置消息路由)
 
-  - [概览](iot/uiot-edge/设置消息路由/概览.md)
-  - [添加消息路由](iot/uiot-edge/设置消息路由/添加消息路由.md)
-  - [消息路由配置详解](iot/uiot-edge/设置消息路由/消息路由配置详解.md)
+  - [概览](/uiot-edge/设置消息路由/概览.md)
+  - [添加消息路由](/uiot-edge/设置消息路由/添加消息路由.md)
+  - [消息路由配置详解](/uiot-edge/设置消息路由/消息路由配置详解.md)
 
-- [远程运维管理](iot/uiot-edge/远程运维管理)
+- [远程运维管理](/uiot-edge/远程运维管理)
 
-  - [远程访问](iot/uiot-edge/远程运维管理/远程访问.md)
+  - [远程访问](/uiot-edge/远程运维管理/远程访问.md)
