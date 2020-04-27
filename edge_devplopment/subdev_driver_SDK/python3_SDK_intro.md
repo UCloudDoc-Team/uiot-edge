@@ -415,11 +415,11 @@
   获取当前网关下的拓扑绑定关系
 
   - 输入参数
-    
+                                                      
     | Parameter name | Type   | Description      |
     | -------------- | ------ | ---------------- |
     | timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
-
+                                                        
   - 返回值
   
 | Parameter name | Type   | Description      |
