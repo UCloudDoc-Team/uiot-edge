@@ -1,18 +1,18 @@
-# python3 SDK使用
+# Python3 SDK使用
 
-本文介绍python SDK的使用，用户可以根据提供的API接口以及子设备的协议编写子设备数据上行及下行逻辑。
+本文介绍Python3 SDK的使用，用户可以根据提供的API接口以及子设备的协议编写子设备数据上行及下行逻辑。
 
 
 
 ## 使用要求
 
-- python 版本 ≥ python 3.6.0
+- Python 版本 ≥ Python 3.6.0
 
 
 
 ## 驱动SDK使用流程
 
-1. 下载python3 SDK到当前目录（便于打包上传到[驱动管理]()）
+1. 下载Python3 SDK到当前目录（便于打包上传到[驱动管理]()）
 
    ```bash
     pip3 install uiotedge_driver_link_sdk
