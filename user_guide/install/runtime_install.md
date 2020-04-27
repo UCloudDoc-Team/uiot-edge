@@ -2,8 +2,6 @@
 
 安装软件是指将UCloud物联网边缘网关运行时软件包安装到边缘硬件中，本文将详细介绍如何安装UIoT Edge运行时。
 
-本文档以安装网关到x86_64下ubuntu 18.04为例，讲解安装软件全过程。
-
 ## 准备工作
 
 #### 网络
@@ -16,20 +14,17 @@
 
 #### 操作系统
 
-UIoT Edge仅支持运行在linux kernel ≥ xx.xx.xx TODO:下，暂不支持其他内核版本及windows系统。
+UIoT Edge仅支持运行在linux下，暂不支持其他内核版本及windows系统。
 
-linux推荐使用以下发行版本，自裁剪系统或其他发行版本可以联系服务经理或提工单，UIoT团队可提供技术支持：
+linux推荐使用以下发行版本，自裁剪系统或其他发行版本将在后续版本中陆续支持，敬请期待：
 
 - x86_64：ubuntu18.04、centos7.0
-- armv7：raspbian GNU、ubuntu18.04 TODO:
+- armv7：raspbian GNU、ubuntu18.04
 - armv8：ubuntu18.04
 
 #### 安装依赖
 
-UIoT Edge软件包的安装依赖以下工具或命令：
-
-- wget、
-- TODO：
+UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装，安装要求具备联网能力。
 
 ## 操作步骤
 
@@ -58,7 +53,7 @@ UIoT Edge软件包的安装依赖以下工具或命令：
 1. 获取安装脚本
    - 在网关管理页面，点击<网关列表>、点击<请选择产品>、点击<详情>，进入该网关的可分配资源管理界面；
    - 进入详情页后，选择<安装软件>；
-   - 选择<CPU架构> ---- x86_64、<适用软件版本> ---- x.x、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
+   - 选择<CPU架构> ---- x86_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
    - 在弹出的**信息确认**框内，检查相关配置，获取软件包下载命令。
 
 ![安装软件网关管理详情](../../images/安装软件网关管理详情.png)
@@ -72,23 +67,19 @@ UIoT Edge软件包的安装依赖以下工具或命令：
    - 登录网关设备，进入安装UIoT Edge的目录，粘贴并运行上述安装命令；
 
      ```bash
-     # 脚本安装依赖`curl`、`get`、`set`、`write` TODO等系统命令，需要提前安装。
-     sudo curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && sudo chmod +x ucloud_iot_edge_process.sh && sudo ./ucloud_iot_edge_process.sh --install X86_64 1.0 && sudo ./ucloud_iot_edge_process.sh --config mkcggwlfxg2oa8p7 wwwde52j9irh5lsr 1md295x9lvps7jp7 && sudo ./ucloud_iot_edge_process.sh --start
+     # 脚本安装依赖`curl`工具，需要提前安装。
+     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && chmod +x ucloud_iot_edge_process.sh && ./ucloud_iot_edge_process.sh --install X86_64 1.0 && ./ucloud_iot_edge_process.sh --config p92zaxzsoeaz6xr7 je1n3q1y44gsggnp ksr2nectpmfg4i2x && ./ucloud_iot_edge_process.sh --start
      ```
 
-![安装软件命令](../../images/安装软件命令.png)
+     ![安装软件命令](../../images/安装软件命令.png)
 
    - 系统会自动下载安装软件包，并启动UIoT Edge运行时；
    - 进入物联网平台控制台，依次点击<网关管理>、<网关列表>、<选择产品>，可以查看网关目前的状态为**在线**；
    - 安装成功，边缘网关成功与物联网云平台建立连接。
 
-![安装软件设备在线](../../images/安装软件设备在线.png)
+     ![安装软件设备在线](../../images/安装软件设备在线.png)
 
 ## 其他操作
-
-### 添加开机自启动
-
-TODO
 
 ### 停用UIoT Edge
 
@@ -106,13 +97,15 @@ TODO
 
 3. 进入物联网平台控制台，依次点击<网关管理>、<网关列表>、<选择产品>，可以查看网关目前的状态为**离线**；
 
-![安装软件停用离线](../../images/安装软件停用离线.png)
+     ![安装软件停用离线](../../images/安装软件停用离线.png)
 
 ### 重装UIoT Edge
 
+重新安装，会覆盖edge端的所有程序及配置，重新部署后会重新部署当前子设备驱动、函数计算、消息路由等配置。
+
 1. 进入物联网平台控制台，依次点击<网关管理>、<网关列表>、<选择产品>；
-2. 点击<重装软件>，以下流程和[安装软件]()一致，详情请参考[安装软件]()；
-3. 选择<CPU架构> ---- x86_64、<适用软件版本> ---- x.x、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
+2. 点击<安装软件>，以下流程和[安装软件]()一致，详情请参考[安装软件]()；
+3. 选择<CPU架构> ---- x86_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
 4. 在弹出的**信息确认**框内，可以查看相关配置，获取软件包下载命令；
 5. 登录网关设备，粘贴并运行上述安装命令；
 6. 安装成功后，登录控制台确认边缘网关状态为**在线**。

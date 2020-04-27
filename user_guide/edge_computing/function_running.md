@@ -20,9 +20,9 @@
    - 操作：
      - <移除>：移除该函数；
 
-![分配函数](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/分配函数.png)
+![分配函数](../../images/分配函数.png)
 
-![分配函数列表](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/分配函数列表.png)
+![分配函数列表](../../images/分配函数列表.png)
 
 ### 函数移除
 
@@ -51,9 +51,9 @@
 5. 点击<部署>，则会将所有分配资源发生的改动部署到网关设备上
 6. 查看**部署状态**为部署成功
 
-![部署函数](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/部署函数.png)
+![部署函数](../../images/部署函数.png)
 
-![函数部署成功](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/函数部署成功.png)
+![函数部署成功](../../images/函数部署成功.png)
 
 ## 测试使用函数
 
