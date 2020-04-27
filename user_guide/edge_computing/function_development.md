@@ -1,35 +1,53 @@
 # 函数开发及添加
 
-函数计算的开发目前仅支持Python3。函数计算基于消息流动触发完成消息的收发及业务处理。
+函数计算的开发目前仅支持Python3。函数计算基于消息触发模型完成消息的收发及业务处理。
 
 ## 函数开发
 
-### Hello World！函数计算示例
+### 函数计算示例
 
-本例完成了当收到消息触发函数计算时，打印该消息，并发送"Hello World！"到某一指定Topic。
+本例完成当收到消息触发函数计算时，将收到的Json数据包中的摄氏温度转换成华氏温度。
 
 ```python
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
 """
-function to send hello world message
+设备上云数据筛选示例
+1. 子设备往函数计算发送一个 json 消息，格式如下
+{
+    "id": 123456,
+    "celsius": 120
+}
+表示 id 为 123456，温度为 120 摄氏度
+2. 函数计算根据条件筛选数据，实例中的筛选条件为
+celsius > 100
+3. 将摄氏度转换为华氏度
+celsius -> fahrenheit
+4. 注意，消息流转需要配置相应的消息路由
 """
 
 import function_sdk
+import json
 
-# 构造一个EdgeClient
+# 如果要使用publish，需要先调用 EdgeClient 构造函数，初始化一个client
 cli = function_sdk.EdgeClient()
 
-# 消息触发回调函数
-def handler(event, context):
-    print(event)
 
-    topic = "/${ProductSN}/${DeviceSN}/upload"
-    payload = b'Hello World!'
-    # 发布消息到某个topic
-    cli.publish(topic, payload)
-    
-    return
+def handler(event, context):
+    try:
+        msg = json.loads(event["payload"])
+    except BaseException as err:
+        print("json loads error:", err)
+    # 筛选
+    if msg["celsius"] > 100:
+        # 使用原先的topic转发
+        topic = event['topic']
+        # 转换为华氏温标
+        msg["fahrenheit"] = msg["celsius"] * 1.8 + 32
+        try:
+            payload = json.dumps(msg).encode('utf-8')
+            # 向指定 topic 发送消息
+            cli.publish(topic, payload)
+        except BaseException as err:
+            print("json dumps error:", err)
 ```
 
 

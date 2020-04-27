@@ -185,9 +185,9 @@
    - 驱动配置
 
      - 配置action为读输入寄存器，分别以data.temperature，data.humidity的json字段格式上报；
-
+     
      - 配置action为写保持寄存器，写入data.temperature_fix，data.humidity_fix，data.temp_humi_fix下发的值；
-
+     
      ```json
      {
          "channel": {
@@ -238,13 +238,13 @@
          }
      }
      ```
-     
+          
      
      
 - 子设备配置
   
   - 配置当前子设备使用的channel值；
-    
+         
      - 配置所属config类型；
      - 配置slave address；
      - 配置为轮询方式，周期为5秒；
@@ -261,7 +261,7 @@
      
   
 5. 参考[函数开发及添加]()，编写函数计算，为payload添加时间戳
-
+   
    ```python
    #!/usr/bin/env python
    # -*- coding:utf-8 -*-
@@ -289,7 +289,7 @@
        # 向指定 topic 发送消息
        cli.publish(topic, payload)
    ```
-
+   
    ![最佳实践添加时间戳](../images/最佳实践添加时间戳.png)
 
    ![最佳实践分配函数](../images/最佳实践分配函数.png)

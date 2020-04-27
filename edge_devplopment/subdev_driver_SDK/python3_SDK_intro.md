@@ -74,10 +74,10 @@
            i = 0
            while True:
                # 获取子设备属性，用户需要根据实际业务定义
-               lightStatus = ("on", "off")[i % 2 == 0]
+               relayStatus = ("on", "off")[i % 2 == 0]
                payload = {
                    "timestamp": time.time(),
-                   "lightStatus": lightStatus
+                   "relayStatus": relayStatus
                }
                byts = json.dumps(payload).encode('utf-8')
    
@@ -139,8 +139,8 @@
 | deviceSN       | String     | 子设备序列号   |
 | config         | Dictionary | 子设备配置信息 |
 
-    
-    
+
+​    
 
 - **Config.getDriverInfo() 方法**
 
@@ -149,7 +149,7 @@
 | Parameter name | Type       | Description  |
 | -------------- | ---------- | ------------ |
 | DriverInfo     | Dictionary | 驱动配置信息 |
-    
+
 
 
 
@@ -173,7 +173,7 @@
 | -------------- | ------ | ---------------- |
 | topic     | String | 接收到消息的Topic |
 | msg     | b:bytes | 接收到消息的Payload |
-  
+
 - **SubDevice.set_product_sn(product_sn) 方法**
 
   设置成员变量产品序列号
@@ -223,7 +223,6 @@
     EdgeDriverLinkException:code=1000xx,msg=xxxx
     ```
     
-
 - **SubDevice.logout(sync=False, timeout=5) 方法**
 
   子设备下线操作
@@ -234,7 +233,7 @@
 | -------------- | ------ | ---------------- |
 | sync     | Bool | 是否异步登出：<br>同步(False)：登出等待云端确认成功reply<br>异步(True)：登出不关心是否云端接收成功 |
 | timeout     | Int | 同步时使用，等待超时时间，单位秒 |
-  
+
   - 返回Exception
     
     异常示例：
@@ -298,7 +297,7 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | timeout     | int | 等待注册成功reply超时时间，单位秒 |
-    
+
   - 返回Exception
     
     异常示例：
@@ -347,7 +346,7 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | msg     | b:bytes | 绑定关系变化json格式字符串 |
-    
+
     - msg消息格式
     
     ```json
@@ -363,7 +362,7 @@
       ]
     }
     ```
-    
+
   - 返回Exception
     
     异常示例：
@@ -389,17 +388,17 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | msg     | b:bytes | 启用/禁用下发的json格式字符串 |
-    
+
     - msg消息格式
     
     ```json
     {
-		"operaction": "enable/disable",
-		"RequestID": "123",
-		"Params": [{
-				"ProductSN": "product1234",
-				"DeviceSN": "device1234"
-		}]
+    	"operaction": "enable/disable",
+    	"RequestID": "123",
+    	"Params": [{
+    			"ProductSN": "product1234",
+    			"DeviceSN": "device1234"
+    	}]
     }
     ```
   - 返回Exception
@@ -425,22 +424,22 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | topoString     | Json String | 拓扑关系Json数据字符串 |
-    
+
     - Json格式
     
     ```json
     {
-	    "RequestID": "123",
-	    "RetCode": 0,
-	    "Data": [
-	      {
-	        "ProductSN": "product1234",
-	        "DeviceSN": "device1234"
+        "RequestID": "123",
+        "RetCode": 0,
+        "Data": [
+          {
+            "ProductSN": "product1234",
+            "DeviceSN": "device1234"
         }
       ]
     }
     ```
-  
+
   - 返回Exception
     
     异常示例：
@@ -460,7 +459,7 @@
 | product_sn | String | 子设备产品序列号 |
 | device_sn | String | 子设备设备序列号 |
 | timeout     | int | 等待添加成功reply超时时间，单位秒 |
-  
+
 - 返回Exception
   
     异常示例：
@@ -499,7 +498,7 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | status | Bool | True/False |
-    
+
   - 返回Exception
     
     异常示例：
@@ -507,4 +506,3 @@
     ```
     EdgeDriverLinkException:code=1000xx,msg=xxxx
     ```
-  
