@@ -54,5 +54,5 @@
   - [常见问题](/uiot-edge/faq/faq.md)
 
 - [版本更新](/uiot-edge/version_notes)
-  - [version_notes](/uiot-edge/version_notes/version_notes.md)
+  - [版本更新记录](/uiot-edge/version_notes/version_notes.md)
 
