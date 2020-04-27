@@ -24,7 +24,7 @@
 
    - 串口设备：/dev/ttyUSB0
    - 波特率： 9600
-- 8位数据，1位停止，无校验 
+   - 8位数据，1位停止，无校验 
 #### 2. 获取温湿度Modbus命令
 
    - **主机读取温度和湿度命令帧(0x04)** ：
@@ -246,13 +246,13 @@
   - 配置当前子设备使用的channel值；
     
      - 配置所属config类型；
-  - 配置slave address；
+     - 配置slave address；
      - 配置为轮询方式，周期为5秒；
      
      ```json
      {
      	"channel": "channel",
-   	"config": "sensor1",
+     	"config": "sensor1",
      	"slave_address": "0x01",
      	"periods": 5    // 周期为5s
      }

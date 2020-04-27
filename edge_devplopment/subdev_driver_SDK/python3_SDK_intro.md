@@ -45,7 +45,13 @@
            exit(1)
    
        try:
-           # 2. 从子设备列表中获取第一个设备的设备信息及子设备配置
+           # 判断子设备列表长度不能为0
+           if len(deviceInfoList) < 1:
+               log.error(
+                   'subdevice null, please bind sub device for dirver')
+               while True:
+                   time.sleep(60)
+           # 2. 从子设备列表中获取第一个设备的设备信息及子设备配置               
            subDeviceInfo = deviceInfoList[0]
            productSN = subDeviceInfo['productSN']
            deviceSN = subDeviceInfo['deviceSN']
@@ -60,19 +66,26 @@
            #    所有对该设备的操作都是基于该对象，比如子设备的消息上下行、设备上下线
            subDevice = SubDevice(product_sn=productSN,
                                  device_sn=deviceSN, on_msg_callback=callback)
+           # 4. 子设备上线
+           subDevice.login()
    
-           # 4. 上报消息Topic，实际可以通过配置文件指定
+           # 5. 上报消息Topic，实际可以通过配置文件指定
            topic = "/{}/{}/upload".format(productSN, deviceSN)
+           i = 0
            while True:
+               # 获取子设备属性，用户需要根据实际业务定义
+               lightStatus = ("on", "off")[i % 2 == 0]
                payload = {
-                   "timestamp": time.time()
+                   "timestamp": time.time(),
+                   "lightStatus": lightStatus
                }
-               byts = json.dumps(payload)
+               byts = json.dumps(payload).encode('utf-8')
    
-               # 上报消息，此处直接上报当前时间戳
-               # 实际中，可以根据协议获取子设备的状态信息上报
+               # 上报消息到消息路由
                subDevice.publish(topic, byts)
+               log.info("uplaod {} : {}".format(topic, str(byts)))
                time.sleep(5)
+               i = i+1
    
        except BaseEdgeException:
            log.error('Edge Exception: {}'.format(str(e)))
@@ -87,7 +100,7 @@
    ```bash
    pip3 install -t . uiotedge_driver_link_sdk  #打包驱动SDK
    pip3 install -t . jsonpath otherpackages #打包自己的依赖
-zip -r driver.zip .
+   zip -r driver.zip .
    ```
    
    > 打包需要同时包含所有依赖。
@@ -444,9 +457,9 @@ zip -r driver.zip .
     | product_sn | String | 子设备产品序列号 |
     | device_sn | String | 子设备设备序列号 |
     | timeout     | int | 等待添加成功reply超时时间，单位秒 |
-    
+  
 - 返回Exception
-    
+  
     异常示例：
     
     ```
@@ -486,8 +499,9 @@ zip -r driver.zip .
     
   - 返回Exception
     
+  
   异常示例：
-    
+  
     ```
     EdgeDriverLinkException:code=1000xx,msg=xxxx
     ```
