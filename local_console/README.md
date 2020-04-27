@@ -1,5 +1,5 @@
-# [本地控制台使用](/uiot-edge/本地控制台使用)
+# 本地控制台使用
 
-- [概览]()
 
-- [控制台详细操作](/uiot-edge/控制台详细操作.md)
+- [概览](/uiot-edge/local_console/overview.md)
+- [控制台详细操作](/uiot-edge/local_console/console_opration_detail.md)
