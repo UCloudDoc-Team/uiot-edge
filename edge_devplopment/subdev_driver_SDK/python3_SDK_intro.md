@@ -145,6 +145,7 @@
 - **Config.getDriverInfo() 方法**
 
   - 返回值
+
 | Parameter name | Type       | Description  |
 | -------------- | ---------- | ------------ |
 | DriverInfo     | Dictionary | 驱动配置信息 |
@@ -253,7 +254,9 @@
 | msg_callback     | Function | 子设备的接收消息的回调函数 |
 
   - msg_callback: callback(topic:str, msg:b'')
+  
     - 回调入参
+	
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | topic     | String | 接收到消息的Topic |
@@ -500,7 +503,7 @@
   - 返回Exception
     
   
-  异常示例：
+    异常示例：
   
     ```
     EdgeDriverLinkException:code=1000xx,msg=xxxx
