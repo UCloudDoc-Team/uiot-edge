@@ -127,17 +127,17 @@
 
   - 返回值
 
-    | Parameter name | Type | Description  |
-    | -------------- | ---- | ------------ |
-    | DeviceInfo     | List | 设备信息列表 |
+| Parameter name | Type | Description  |
+| -------------- | ---- | ------------ |
+| DeviceInfo     | List | 设备信息列表 |
 
   - DeviceInfo设备信息
 
-    | Parameter name | Type       | Description    |
-    | -------------- | ---------- | -------------- |
-    | productSN      | String     | 子产品序列号   |
-    | deviceSN       | String     | 子设备序列号   |
-    | config         | Dictionary | 子设备配置信息 |
+| Parameter name | Type       | Description    |
+| -------------- | ---------- | -------------- |
+| productSN      | String     | 子产品序列号   |
+| deviceSN       | String     | 子设备序列号   |
+| config         | Dictionary | 子设备配置信息 |
 
     
     
@@ -145,9 +145,9 @@
 - **Config.getDriverInfo() 方法**
 
   - 返回值
-    | Parameter name | Type       | Description  |
-    | -------------- | ---------- | ------------ |
-    | DriverInfo     | Dictionary | 驱动配置信息 |
+| Parameter name | Type       | Description  |
+| -------------- | ---------- | ------------ |
+| DriverInfo     | Dictionary | 驱动配置信息 |
     
 
 
@@ -158,20 +158,20 @@
 
 - **SubDevice 构造函数入参**
 
-  | Parameter name  | Type     | Description                |
-  | --------------- | -------- | -------------------------- |
-  | product_sn      | String   | 子设备产品序列号           |
-  | device_sn       | String   | 子设备设备序列号           |
-  | on_msg_callback | Function | 子设备的接收消息的回调函数 |
+| Parameter name  | Type     | Description                |
+| --------------- | -------- | -------------------------- |
+| product_sn      | String   | 子设备产品序列号           |
+| device_sn       | String   | 子设备设备序列号           |
+| on_msg_callback | Function | 子设备的接收消息的回调函数 |
 
   - msg_callback: callback(topic:str, msg:b'')
     
     回调函数入参
     
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | topic     | String | 接收到消息的Topic |
-    | msg     | b:bytes | 接收到消息的Payload |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| topic     | String | 接收到消息的Topic |
+| msg     | b:bytes | 接收到消息的Payload |
   
 - **SubDevice.set_product_sn(product_sn) 方法**
 
@@ -179,9 +179,9 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | product_sn     | String | 子设备产品序列号 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| product_sn     | String | 子设备产品序列号 |
 
 - **SubDevice.set_device_sn(device_sn) 方法**
 
@@ -189,9 +189,9 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | device_sn     | String | 子设备设备序列号 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| device_sn     | String | 子设备设备序列号 |
 
 - **SubDevice.set_product_secret(product_secret) 方法**
 
@@ -199,9 +199,9 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | product_secret     | String | 子设备产品密钥 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| product_secret     | String | 子设备产品密钥 |
 
 - **SubDevice.login(sync=False, timeout=5) 方法**
 
@@ -209,10 +209,10 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | sync     | Bool | 是否异步登录：<br>同步(False)：登录等待云端确认成功reply<br>异步(True)：登录不关心是否云端接收成功 |
-    | timeout     | Int | 同步时使用，等待超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| sync     | Bool | 是否异步登录：<br>同步(False)：登录等待云端确认成功reply<br>异步(True)：登录不关心是否云端接收成功 |
+| timeout     | Int | 同步时使用，等待超时时间，单位秒 |
 
   - 返回Exception
     
@@ -229,10 +229,10 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | sync     | Bool | 是否异步登出：<br>同步(False)：登出等待云端确认成功reply<br>异步(True)：登出不关心是否云端接收成功 |
-    | timeout     | Int | 同步时使用，等待超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| sync     | Bool | 是否异步登出：<br>同步(False)：登出等待云端确认成功reply<br>异步(True)：登出不关心是否云端接收成功 |
+| timeout     | Int | 同步时使用，等待超时时间，单位秒 |
   
   - 返回Exception
     
@@ -248,16 +248,16 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | msg_callback     | Function | 子设备的接收消息的回调函数 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| msg_callback     | Function | 子设备的接收消息的回调函数 |
 
   - msg_callback: callback(topic:str, msg:b'')
     - 回调入参
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | topic     | String | 接收到消息的Topic |
-    | msg     | b:bytes | 接收到消息的Payload |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| topic     | String | 接收到消息的Topic |
+| msg     | b:bytes | 接收到消息的Payload |
 
   - 返回Exception
     
@@ -273,10 +273,10 @@
 
   - 输入参数
   
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | topic     | String | 发送消息的Topic |
-    | payload     | b:bytes | 发送消息的Payload |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| topic     | String | 发送消息的Topic |
+| payload     | b:bytes | 发送消息的Payload |
 
   - 返回Exception
     
@@ -292,9 +292,9 @@
 
   - 输入参数
   
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | timeout     | int | 等待注册成功reply超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| timeout     | int | 等待注册成功reply超时时间，单位秒 |
     
   - 返回Exception
     
@@ -312,12 +312,12 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | product_sn | String | 子设备产品序列号 |
-    | device_sn | String | 子设备设备序列号 |
-    | product_secret | String | 子设备设备密钥 |
-    | timeout     | int | 等待注册成功reply超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| product_sn | String | 子设备产品序列号 |
+| device_sn | String | 子设备设备序列号 |
+| product_secret | String | 子设备设备密钥 |
+| timeout     | int | 等待注册成功reply超时时间，单位秒 |
 
   - 返回Exception
     
@@ -333,17 +333,17 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | callback     | Function | 绑定关系发生改变回调函数 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| callback     | Function | 绑定关系发生改变回调函数 |
 
   - callback: callback(msg:b'')
 
     - 回调入参
     
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | msg     | b:bytes | 绑定关系变化json格式字符串 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| msg     | b:bytes | 绑定关系变化json格式字符串 |
     
     - msg消息格式
     
@@ -375,17 +375,17 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | callback     | Function | 子设备被启用/禁用的回调函数 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| callback     | Function | 子设备被启用/禁用的回调函数 |
 
   - callback: callback(msg:b'')
 
     - 回调入参
     
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | msg     | b:bytes | 启用/禁用下发的json格式字符串 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| msg     | b:bytes | 启用/禁用下发的json格式字符串 |
     
     - msg消息格式
     
@@ -413,15 +413,15 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
 
   - 返回值
   
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | topoString     | Json String | 拓扑关系Json数据字符串 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| topoString     | Json String | 拓扑关系Json数据字符串 |
   
     - Json格式
   
@@ -452,11 +452,11 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | product_sn | String | 子设备产品序列号 |
-    | device_sn | String | 子设备设备序列号 |
-    | timeout     | int | 等待添加成功reply超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| product_sn | String | 子设备产品序列号 |
+| device_sn | String | 子设备设备序列号 |
+| timeout     | int | 等待添加成功reply超时时间，单位秒 |
   
 - 返回Exception
   
@@ -472,12 +472,12 @@
 
   - 输入参数
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | product_sn | String | 子设备产品序列号 |
-    | device_sn | String | 子设备设备序列号 |
-    | product_secret | String | 子设备设备密钥 |
-    | timeout     | int | 等待删除成功reply超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| product_sn | String | 子设备产品序列号 |
+| device_sn | String | 子设备设备序列号 |
+| product_secret | String | 子设备设备密钥 |
+| timeout     | int | 等待删除成功reply超时时间，单位秒 |
 
   - 返回Exception
     
@@ -493,9 +493,9 @@
 
   - 返回值
 
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | status | Bool | True/False |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| status | Bool | True/False |
     
   - 返回Exception
     
