@@ -24,7 +24,7 @@
 
    官方提供了一个RelaySwitcher驱动例子，供参考；驱动SDK有详细文档说明，可参阅，[子设备驱动](../edge_development/subdev_driver_SDK/python3_SDK_intro.md)
 
-   目前SDK支持Python3，后面会推出C语音版本。
+   目前SDK支持Python3，后面会推出C语言版本。
 
 7. 如何实现网关设备替换？
 
