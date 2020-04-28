@@ -22,7 +22,6 @@
    - 点击<产品名称>或<详情>，进入**网关产品**详情页；
    - 产品类型，该产品的类型为网关；
    - 点击<设备数量>，进入[设备管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/create_devcies?id=管理设备)页；
-   - 点击<固件数量>，进入[固件管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/ota/firmware_management)页；
    - 创建时间：产品创建的时间，可以进行排序显示；
    - 点击<产品发布状态>，发布产品或取消发布产品，产品一旦发布将不能修改物模型、Topic等，可以进行筛选；
    - 点击<设备管理>，进入[设备管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/create_devcies?id=管理设备)页；
@@ -34,7 +33,7 @@
 
 ### 网关产品详情
 
-创建完**网关产品**后，点击<详情>或点击<产品名称>，可以查看该网关的相关信息，网关的产品与普通产品详情信息一致，具体使用可以参考UIoT Core产品的相关介绍：**[产品概览]()**、**[设备管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/create_devcies?id=管理设备)**、**[Topic管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/topic)**、**[功能定义（物模型）](https://docs.ucloud.cn/iot/uiot-core/console_guide/thingmode/thingmode_guide)**、**[固件与升级](https://docs.ucloud.cn/iot/uiot-core/console_guide/ota/firmware_management)**。
+创建完**网关产品**后，点击<详情>或点击<产品名称>，可以查看该网关的相关信息，网关的产品与普通产品详情信息一致，具体使用可以参考UIoT Core产品的相关介绍：**[产品概览]()**、**[设备管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/create_devcies?id=管理设备)**、**[Topic管理](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/topic)**、**[功能定义（物模型）](https://docs.ucloud.cn/iot/uiot-core/console_guide/thingmode/thingmode_guide)**。
 
 ![网关产品详情](../../images/网关产品详情.png)
 
@@ -46,7 +45,6 @@
 
 - 删除**网关产品**不可恢复，需要谨慎操作；
 - 删除**网关产品**需要先删除**网关产品**下的设备，否则不能删除；
-- 删除**网关产品**会同时删除**网关产品**下已经上传的固件；
 
 ![删除网关产品](../../images/删除网关产品.png)
 
