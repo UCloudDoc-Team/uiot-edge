@@ -205,14 +205,14 @@
                          {
                              "name": "data.temperature",
                              "type": "int",
-                             "count": 1,  // 返回的第一个寄存器值
+                             "count": 1,  //返回的第一个寄存器值
                              "scale": 0.1,
                              "offset": 0
                          },
                          {
                              "name": "data.humidity",
                              "type": "int",
-                             "count": 1,  // 返回的第二个寄存器值
+                             "count": 1,  //返回的第二个寄存器值
                              "scale":0.1,
                              "offset":0
                          }
@@ -238,7 +238,7 @@
          }
      }
      ```
-          
+     
      
      
 - 子设备配置
@@ -254,14 +254,14 @@
      	"channel": "channel",
      	"config": "sensor1",
      	"slave_address": "0x01",
-     	"periods": 5    // 周期为5s
+     	"periods": 5    //周期为5s
      }
      ```
      
      
   
 5. 参考[函数开发及添加]()，编写函数计算，为payload添加时间戳
-    
+   
 	
    ```python
    #!/usr/bin/env python

@@ -125,10 +125,19 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 ```
 
 - channel1，channel2 表示不同的通道的自定义名称，支持Modbus RTU和Modbus TCP
-  - port：必填，RTU - 串口设备；TCP - 网络关口
-  - baudrate：RTU 必填，串口波特率
-  - method：必填，RTU - "rtu"，TCP - "tcp"
-
+  
+  - Modbus RTU：
+    - baudrate：串口波特率
+  - bytesize：数据位长度
+    - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；
+    - stopbits：停止位长度
+    - timtout：超时时间
+    - method：”rtu“
+  
+  - Modbus TCP：
+    - port：使用端口
+    - method：“tcp”
+  
 - modbus_config 表示属性集合配置，名称自定义
 
   - read：选填，定义需要读取的寄存器值并转换成json上报数据包，该项为数组
@@ -137,14 +146,15 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
     - address：必填，读寄存器地址
 
-    - number：必填，读寄存器个数。number=1，代表读一个16bit数据
+    - number：选填，读寄存器个数。number=1，代表读一个16bit数据
 
     - prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
 
-      - type：必填，json组包时的上报类型，支持int，uint，float，float64，string，默认为 TODO
+      - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
 
-      - name：选填，自定义jsonpath，代表数据上报到云端如何组成json包；当该字段为空，但count不为空时，代表跳过该寄存器或该bit位，
-      - count：必填，默认值为1
+      - type：选填，json组包时的上报类型，支持int，uint，float，string，默认为 int；当读线圈或离散是，忽略该字段，默认为bool类型bool 数组
+      
+      - count：选填，默认值为1
       - scale：选填，缩放系数，将读取的值乘以scale上报
       - offset：选填，偏移系数，将读取的值加offset上报
       - swap16：选填，true/false，修改大小端，是否交换寄存器的高8位和低8位后再换算
@@ -217,7 +227,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 ### 实践
 
-了解了【驱动配置】和【子设备配置】，用户可以基于官方Modbus采集UIoT-Edge的Modbus设备。
+了解了【驱动配置】和【子设备配置】，用户可以基于官方Modbus采集UIoT Edge的Modbus设备。
 
 更多使用示例可以参考[最佳实践]()。
 

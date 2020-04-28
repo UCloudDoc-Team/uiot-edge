@@ -56,12 +56,45 @@ def handler(event, context):
 
 #### 消息触发回调接口
 
-基于函数计算的框架，用户只需实现`handler(event, context)`接口，当消息路由被命中时，handler接口会被调用，执行业务逻辑。
+基于函数计算的框架，用户只需实现`handler(event, context)`接口，当函数计算被消息路由命中时，handler接口会被调用，执行业务逻辑。
 
 1. 函数接口名必须为`handler`；
 2. 函数参数：
-   - event：TODO
-   - context：TODO
+   - event：触发函数的事件，类型为 dict
+|字段|类型|描述|
+|-|-|-|
+|type|String|事件类型，这里为 "mqtt"|
+| topic   | String  | 消息topic                                                    |
+| source  | String  | 消息来源，和消息路由一致。<br>分为"本地路由", "IoT Core云平台" 和 "函数计算" 三种 |
+| payload | b:bytes | 消息体                                                       |
+【示例】
+
+```json
+{
+    'type': 'mqtt',
+    'source': 'local',
+    'topic': '/test/topic1',
+    'payload': b'{"id":1, "celsius":150}'
+}
+```
+
+   - context：函数上下文，类型为dict
+
+| 字段             | 类型   | 描述           |
+| ---------------- | ------ | -------------- |
+| timestamp        | int    | 函数调用时间戳 |
+| functionInvokeID | String | 函数调用ID     |
+| functionName     | String | 函数名         |
+
+【示例】
+
+```json
+{
+    'timestamp': 1587886520,  //Unix时间戳
+    'functionName': 'test1',
+    'functionInvokeID': 'ac6cbf30-d9e7-4d50-8882-5b4648f6cfde'
+}
+```
 
 #### 发送消息
 
@@ -74,7 +107,7 @@ cli.publish(topic, payload)
 
 #### 消息转发
 
-函数计算消息转发需要通过[配置消息路由]()来实现，函数计算将发送的消息流转到[消息路由]()，消息路由根据配置的路由规则发送给指定目的地，比如：另一个函数计算、本地设备、物联网云平台。
+函数计算消息转发需要通过[添加消息路由]()来实现。函数计算将发送的消息流转到[消息路由]()，消息路由根据配置的路由规则发送给指定目的地，比如，另一个函数计算、本地设备、物联网云平台。
 
 ## 添加函数
 
@@ -86,9 +119,9 @@ cli.publish(topic, payload)
 
 ### 操作步骤
 
-1. 登录进入UCloud[物联网平台](https://console.ucloud.cn/uiot)
+1. 登录进入UCloud[物联网边缘网关](https://console.ucloud.cn/uiot_edge)
 
-2. 选择<网关管理>标签，点击<函数计算>
+2. 选择<函数计算>标签
 
 3. 点击<新增函数>，在弹出的对话框中输入函数计算的相关信息
 
