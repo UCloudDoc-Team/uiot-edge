@@ -18,7 +18,7 @@
     pip3 install uiotedge_driver_link_sdk
    ```
 
-2. 创建`index.py`
+2. 创建`index.py` TODO：根据最后example更新
 
    ```python
    from uiotedgedriverlinksdk.client import SubDevice, Config
@@ -124,12 +124,11 @@
 创建一个Config对象，用于获取驱动配置、子设备配置。
 
 - **Config.getDeviceInfos() 方法**
-
-  - 返回值
+- 返回值
 
 | Parameter name | Type | Description  |
 | -------------- | ---- | ------------ |
-| DeviceInfo     | List | 设备信息列表 |
+| DeviceInfoList | List | 设备信息列表 |
 
   - DeviceInfo设备信息
 
@@ -143,8 +142,7 @@
 ​    
 
 - **Config.getDriverInfo() 方法**
-
-  - 返回值
+- 返回值
 
 | Parameter name | Type       | Description  |
 | -------------- | ---------- | ------------ |

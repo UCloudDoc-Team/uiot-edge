@@ -7,12 +7,12 @@ UIoT Edge 提供边缘网关的运行时，需要用户自行购买硬件网关�
 | 参数     | 进程版                                            | Docker版                        |
 | -------- | ------------------------------------------------- | ------------------------------- |
 | CPU架构  | x86_64(amd64)<br>armv8(aarch64)<br>armv7(aarch32) | x86_64(amd64)<br>armv8(aarch64) |
-| CPU主频  | ≥                                                 | ≥                               |
+| CPU主频  | ≥600MHz                                           | ≥1.4GHz                         |
 | 内存     | ≥256MB                                            | ≥1G                             |
 | 硬盘     | ≥1GB                                              | ≥1GB                            |
 | GPU/NPU  | 可选                                              | 可选                            |
-| OS       | linux <br>kernel version ≥                        | linux<br>docker version ≥       |
-| 端口占用 |                                                   |                                 |
+| OS       | linux <br>kernel version ≥4.1                     | linux<br>docker version ≥18.09  |
+| 端口占用 | 8080(本地Web Portal)                              | 8080(本地Web Portal)            |
 
 
 
