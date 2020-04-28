@@ -421,7 +421,7 @@
     
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
-| topoString     | Json String | 拓扑关系Json数据字符串 |
+| topoString     | Json String | 拓扑关系json数据字符串 |
 
     - Json格式
     
