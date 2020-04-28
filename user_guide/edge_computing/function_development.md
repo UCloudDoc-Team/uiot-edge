@@ -6,7 +6,7 @@
 
 ### 函数计算示例
 
-本例完成当收到消息触发函数计算时，将收到的Json数据包中的摄氏温度转换成华氏温度。
+本例完成当收到消息触发函数计算时，将收到的json数据包中的摄氏温度转换成华氏温度。
 
 ```python
 """
@@ -29,7 +29,6 @@ import json
 
 # 如果要使用publish，需要先调用 EdgeClient 构造函数，初始化一个client
 cli = function_sdk.EdgeClient()
-
 
 def handler(event, context):
     try:
