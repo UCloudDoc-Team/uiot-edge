@@ -2,7 +2,7 @@
 
 UIoT Edge提供操作云端控制台的API，方便用户在业务中集成云平台管理边缘网关的功能，边缘网关管理API列表包括网关设备管理、网关子设备管理、驱动管理、函数计算管理、消息路由管理等。
 
-UIoT Edge平台暂不提供对不同云端开发语言的SDK，对于有云端开发需求的可以参考[云端API文档]()，或者参考UCloud SDK框架[UCloud SDK](https://github.com/ucloud?utf8=✓&q=sdk&type=&language=)，通过API SDK框架集成自己的业务。
+UIoT Edge平台暂不提供对不同云端开发语言的SDK，对于有云端开发需求的可以参考[云端API文档]()，或者参考UCloud SDK框架[UCloud SDK](https://github.com/ucloud?utf8=%E2%9C%93&q=SDK&type=&language=)，通过API SDK框架集成自己的业务。
 
 # 关于API的接入
 

@@ -127,13 +127,14 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 - channel1，channel2 表示不同的通道的自定义名称，支持Modbus RTU和Modbus TCP
   
   - Modbus RTU：
+    
     - baudrate：串口波特率
-  - bytesize：数据位长度
-    - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；
+    - bytesize：数据位长度
+    
+    - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；
     - stopbits：停止位长度
     - timtout：超时时间
     - method：”rtu“
-  
   - Modbus TCP：
     - port：使用端口
     - method：“tcp”
