@@ -18,7 +18,7 @@
     pip3 install uiotedge_driver_link_sdk
    ```
 
-2. 创建`index.py` TODO：根据最后example更新
+2. 创建`index.py`
 
    ```python
    from uiotedgedriverlinksdk.client import SubDevice, Config

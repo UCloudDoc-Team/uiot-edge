@@ -18,7 +18,6 @@ UIoT Edge提供子设备接入、函数计算、消息路由、本地缓存断�
     - [创建网关](/uiot-edge/user_guide/edge_subdevice/create_edge.md)
     - [创建子设备](/uiot-edge/user_guide/edge_subdevice/create_subdevice.md)
     - [关联子设备](/uiot-edge/user_guide/edge_subdevice/subdevice_bind.md)
-    - [网关管理](/uiot-edge/user_guide/edge_subdevice/edge_management.md)
   - 安装网关软件
     - [安装软件](/uiot-edge/user_guide/install/runtime_install.md)
   - 子设备驱动与接入
