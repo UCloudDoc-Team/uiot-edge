@@ -15,7 +15,7 @@
 
 #### 一个简单的驱动实现（代码以示意为主）
 
-全部代码可以参考：[Python3 SDK 使用流程]()
+全部代码可以参考：[Python3 SDK 使用流程](/uiot-edge/edge_development/subdev_driver_SDK/python3_SDK_intro)
 
 ```c
 config_info get_config()
@@ -71,17 +71,17 @@ main()
 
 #### 驱动配置
 
-驱动配置在[边缘网关详情]() -> [已分配驱动]()->[驱动配置]()修改，驱动配置一般包括两方面内容：
+驱动配置在【[边缘网关详情](/uiot-edge/user_guide/edge_subdevice/create_edge#网关详情)】 -> 【已分配驱动】->【驱动配置】修改，驱动配置一般包括两方面内容：
 
 1）网关与子设备通信使用的通道等信息配置。以Modbus为例，比如channel1 = /dev/ttyS0, 9600, 8N1;
 
 2）子设备属性集合表，即子设备协议指令获取的属性值如何转换成上云的协议字段。以Modbus为例，比如属性集为properties1，定义Modbus读取属性指令为`功能码0x04 寄存器地址0x01 读取数据长度0x01`，则对应上云的字段为`temperature`，则驱动会根据配置信息将上述指令读到的数据转为`{"temperature": 20}`上报到云端。
 
-详细例子可以参考[官方Modbus驱动-驱动配置]()。
+详细例子可以参考[官方Modbus驱动-驱动配置](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver#驱动配置)。
 
 #### 子设备配置
 
-子设备配置在[边缘网关详情]() -> [已分配驱动]()->[添加设备]()->[修改配置]()中修改，子设备配置主要包含以下几部分：
+子设备配置在【[边缘网关详情](/uiot-edge/user_guide/edge_subdevice/create_edge#网关详情)】 -> 【已分配驱动】->【添加设备】->【修改配置】中修改，子设备配置主要包含以下几部分：
 
 1）使用的通道。比如使用的上述驱动配置中的channel1；
 
@@ -91,19 +91,21 @@ main()
 
 4）轮询方式，轮询周期等。比如 period = 5；
 
+详细例子可以参考[官方Modbus驱动-子设备配置](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver#子设备配置)。
+
 ![驱动配置]()
 
 ![子设备配置]()
 
-**下一步**，添加驱动，并[分配给边缘网关]()，[部署测试]()。
+**下一步**，添加驱动，并[分配给边缘网关](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)，[部署测试](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate#部署驱动)。
 
 ## 添加驱动
 
 驱动开发完成后，可以添加驱动并进行测试：
 
-- 将驱动上传到驱动管理，见本节[操作步骤]()；
-- 通过下一节的[分配驱动]()，将驱动分配给相应的边缘网关设备，并添加设备；
-- 通过下一节的[部署驱动]()，进行测试、使用。
+- 将驱动上传到驱动管理，见本节[操作步骤](/uiot-edge/user_guide/subdevice_driver_access/driver_development#操作步骤)；
+- 通过下一节的[分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)，将驱动分配给相应的边缘网关设备，并添加设备；
+- 通过下一节的[部署驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate#部署驱动)，进行测试、使用。
 
 ### 操作步骤
 
@@ -129,11 +131,11 @@ main()
    - 操作：
      - 修改：对驱动进行修改，仅支持驱动名称、适用软件版本、驱动描述、驱动文件的修改
      - 下载：下载该驱动文件
-     - 删除：可以删除该驱动，删除驱动需要先移除该驱动与网关的分配关系，参考[分配驱动]()
+     - 删除：可以删除该驱动，删除驱动需要先移除该驱动与网关的分配关系，参考[分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)
 
 7. <批量删除>：同时选择多个驱动，点击<删除>按钮，可以批量删除驱动；
 
-   > **注：驱动删除需要先移除驱动与网关的分配关系，参考[分配驱动]()。**
+   > **注：驱动删除需要先移除驱动与网关的分配关系，参考[分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)。**
 
 ![新增驱动](../../images/新增驱动.png)
 

@@ -8,7 +8,7 @@ UIoT Edge基于UCloud物联网通信云平台UIoT Core，用户可以参考UIoT 
 
 ## 创建网关
 
-<创建网关>提供便捷的方式创建网关产品及网关设备。用户也可以参考UIoT Core物联网平台的[创建产品]()、[创建设备]()创建类型为【网关】的产品。
+<创建网关>提供便捷的方式创建网关产品及网关设备。用户也可以参考UIoT Core物联网平台的[创建产品](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_products)、[创建设备](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies)创建类型为【网关】的产品。
 
 ### 操作步骤 
 
@@ -34,7 +34,7 @@ UIoT Edge基于UCloud物联网通信云平台UIoT Core，用户可以参考UIoT 
 
 - <部署>：当发生**已分配驱动**、**已分配函数**、**消息路由**发生变化时，可点击部署，下发到网关
 
-- <安装软件>：网关初次使用，需要安装UIoT Edge运行时，参考[安装网关软件]()
+- <安装软件>：网关初次使用，需要安装UIoT Edge运行时，参考[安装网关软件](/uiot-edge/user_guide/install/runtime_install)
 
 - <设备状态>：在线、离线、未激活
 
@@ -71,28 +71,28 @@ UIoT Edge基于UCloud物联网通信云平台UIoT Core，用户可以参考UIoT 
 
 - 已分配驱动：
 
-  分配驱动需要在[驱动管理]()中先添加驱动
+  分配驱动需要在[驱动管理](/uiot-edge/user_guide/subdevice_driver_access/driver_development#添加驱动)中先添加驱动
 
   - <分配驱动/移除>：分配驱动给当前网关或从当前网关移除驱动
-  - 驱动列表：参考[分配驱动]()
+  - 驱动列表：参考[分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)
   - <设备列表>：为子设备分配驱动
-  - <驱动配置>：参考[驱动配置]()
+  - <驱动配置>：参考[驱动配置](/uiot-edge/user_guide/subdevice_driver_access/driver_development#驱动配置)
   - <容器配置>：如果使用容器模式，配置端口相关
   - <移除>：移除该驱动，**注，移除该驱动会删除该驱动下添加的子设备**
 
 - 已分配函数：
 
-  分配函数需要在[函数计算]()中先添加函数计算
+  分配函数需要在[函数计算](/uiot-edge/user_guide/edge_computing/function_development#添加函数)中先添加函数计算
 
   - <分配函数/移除>：分配函数计算给当前网关或从当前网关移除驱动
-  - 函数计算列表：参考[运行函数计算]()
+  - 函数计算列表：参考[运行函数计算](/uiot-edge/user_guide/edge_computing/function_running)
   - <修改函数>：修改函数计算代码
   - <移除>：移除已经分配的函数计算
 
 - 消息路由：
 
   - <新增消息路由/删除>：新增或者删除消息路由
-  - 消息路由列表：参考[添加消息路由]()
+  - 消息路由列表：参考[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)
   - <编辑/删除>：编辑该路由或者删除该路由
 
   
@@ -116,9 +116,9 @@ UIoT Edge基于UCloud物联网通信云平台UIoT Core，用户可以参考UIoT 
 
 #### 禁用和删除网关设备
 
-网关设备的禁用可以在UIoT Edge控制台直接操作，也可以参考[设备禁用]()。
+网关设备的禁用可以在UIoT Edge控制台直接操作，也可以参考[设备禁用](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备禁用)。
 
-网关设备的删除和普通设备的禁用和删除功能一样，可以参考[设备删除]()。
+网关设备的删除和普通设备的禁用和删除功能一样，可以参考[设备删除](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备删除)。
 
 删除后的设备将不再出现在设备列表中，可以通过添加设备重新添加该序列号设备，重新配置相关信息。
 

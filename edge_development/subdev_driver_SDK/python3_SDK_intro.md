@@ -12,7 +12,7 @@
 
 ## 驱动SDK使用流程
 
-1. 下载Python3 SDK到当前目录（便于打包上传到[驱动管理]()）
+1. 下载Python3 SDK
 
    ```bash
     pip3 install uiotedge_driver_link_sdk
@@ -98,20 +98,20 @@
 3. 打包驱动
 
    ```bash
-   pip3 install -t . uiotedge_driver_link_sdk  #打包驱动SDK
+   pip3 install -t . uiotedge_driver_link_sdk  #打包驱动SDK，"-t ."，表示下载python包到当前目录，用于打包上传到驱动管理
    pip3 install -t . jsonpath otherpackages #打包自己的依赖
    zip -r driver.zip .
    ```
    
    > 打包需要同时包含所有依赖。
 
-4. 上传驱动zip压缩包到[驱动管理]()
+4. 上传驱动zip压缩包到[驱动管理](/uiot-edge/user_guide/subdevice_driver_access/driver_development#添加驱动)
 
-5. [分配驱动]()到网关设备
+5. [分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)到网关设备
 
 6. 进行测试
 
-   配置路由后，通过[日志模块]()查看上下行消息内容。
+   配置路由后，通过[日志模块](https://docs.ucloud.cn/uiot-core/console_guide/monitoring_maintenance/log)查看上下行消息内容。
 
 
 

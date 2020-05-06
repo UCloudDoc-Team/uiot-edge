@@ -8,7 +8,7 @@
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|创建的函数名称，函数名称支持26个英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度2-31|**Yes**|
 |Handler|string|函数处理方法名称，名称格式支持 "文件名称.方法名称" 形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求是 2-31 个字符。默认index.handler|No|
@@ -51,7 +51,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreFunction
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|函数名称|**Yes**|
 
@@ -86,7 +86,7 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreFunction
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|要修改的函数名称|**Yes**|
 |Runtime|string|要修改的运行环境，为空不修改|No|
@@ -128,7 +128,7 @@ https://api.ucloud.cn/?Action=UpdateUIoTCoreFunction
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|支持FunctionName模糊匹配|No|
 |Offset|int|列表起始位置偏移量，默认为0|No|
@@ -186,7 +186,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreFunctionList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|函数名|**Yes**|
 |ProductSN|string|边缘网关产品序列号|**Yes**|
@@ -224,7 +224,7 @@ https://api.ucloud.cn/?Action=BindUIoTCoreFunctionToEdge
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|边缘网关产品序列号|**Yes**|
 |DeviceSN|string|边缘网关设备序列号|**Yes**|
@@ -298,7 +298,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreEdgeFunctionList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|函数名|**Yes**|
 |ProductSN|string|边缘网关产品序列号|**Yes**|

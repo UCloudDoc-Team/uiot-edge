@@ -8,7 +8,7 @@
 
 消息路由流转可以使用以下两类Topic，Topic支持 `+`、`#` 通配符，通配符的使用方法可以参考[Topic通配符](https://docs.ucloud.cn/iot/uiot-core/console_guide/product_device/topic?id=topic通配符)：
 
-1. 针对在UIoT Core物联网平台定义的[系统Topic]()、[自定义Topic]()：
+1. 针对在UIoT Core物联网平台定义的[系统Topic](https://docs.ucloud.cn/uiot-core/console_guide/product_device/topic#系统Topic)、[自定义Topic](https://docs.ucloud.cn/uiot-core/console_guide/product_device/topic#用户自定义Topic)：
 
 | 消息源          | 可过滤Topic                                   | 目的地          |
 | --------------- | --------------------------------------------- | --------------- |
@@ -20,7 +20,7 @@
 | 子设备          | 子设备：上行Topic                             | 函数计算        |
 | 子设备          | 子设备：上行Topic                             | UIoT Core云平台 |
 
-2. 针对边缘网关[本地Topic]()，本地Topic不能流转到云平台，所以消息源或目的地为**UIoT Core云平台**的不能参与流转：
+2. 针对边缘网关[本地Topic](/uiot-edge/user_guide/message_route/add_msg_route#关于本地Topic的一些限制)，本地Topic不能流转到云平台，所以消息源或目的地为**UIoT Core云平台**的不能参与流转：
 
 | 消息源   | 可过滤Topic | 目的地   |
 | -------- | ----------- | -------- |
@@ -32,7 +32,7 @@
 
 #### UIoT云平台 ——> 函数计算
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 
 2. 消息来源：选择 <IoT Core> ；
 
@@ -46,7 +46,7 @@
 
 #### UIoT云平台 ——> 子设备
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 
 2. 消息来源：选择 <IoT Core> ；
 
@@ -60,7 +60,7 @@
 
 #### 函数计算 ——> 函数计算
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 2. 消息来源：选择 <函数计算> ；
 3. 函数名称：选择需要流转的源函数名；
 4. 主题过滤：网关或子设备的任意Topic均可，同时支持本地Topic，**本例以本地Topic为例**；
@@ -72,7 +72,7 @@
 
 #### 函数计算 ——> 子设备
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 2. 消息来源：选择 <函数计算> ；
 3. 函数名称：选择需要流转的源函数名；
 4. 主题过滤：支持子设备的下行Topic，同时支持本地Topic，**本例以子设备下行Topic为例**；
@@ -83,7 +83,7 @@
 
 #### 函数计算 ——>UIoT云平台
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 2. 消息来源：选择 <函数计算> ；
 3. 函数名称：选择需要流转的源函数名；
 4. 主题过滤：支持网关本身子设备的上行Topic，**本例以子设备上行Topic为例**；
@@ -94,7 +94,7 @@
 
 #### 子设备 ——> 函数计算
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 2. 消息来源：选择<子设备> ；
 3. 主题过滤：支持子设备的上行Topic，同时支持本地Topic，**本例以子设备上行Topic为例**；
 4. 消息目标：选择 <函数计算>；
@@ -105,7 +105,7 @@
 
 #### 子设备——>UIoT云平台
 
-1. 根据[添加消息路由]()，新增消息路由；
+1. 根据[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)，新增消息路由；
 2. 消息来源：选择<子设备> ；
 3. 主题过滤：仅支持子设备的上行Topic；
 4. 消息目标：选择 <IoT Core>；

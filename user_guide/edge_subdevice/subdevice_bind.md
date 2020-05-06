@@ -4,8 +4,8 @@
 
 关联子设备到网关分为静态绑定和动态绑定两种：
 
-- 静态绑定：子设备在控制台或者调用[API接口]()将子设备绑定到某个网关。
-- 动态绑定：通过[子设备驱动接口调用]()将子设备绑定到网关。
+- 静态绑定：子设备在控制台或者调用[API接口-AddUIoTCoreSubDeviceTopo](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)将子设备绑定到某个网关。
+- 动态绑定：通过[子设备驱动接口调用](/uiot-edge/api_list/subdev_driver_access#CreateUIoTCoreEdgeDriverBind)将子设备绑定到网关。
 
 **注意事项：**
 
@@ -30,13 +30,12 @@
 
 ### 调用API接口绑定
 
-接口[bindsubdevice]()提供了绑定子设备到固定网关的能力，参考[[bindsubdevice]()]()。
+接口[AddUIoTCoreSubDeviceTopo](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)提供了绑定子设备到固定网关的能力，参考[AddUIoTCoreSubDeviceTopo](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)。
 
-TODO:
 
 ## 动态绑定
 
-动态绑定是指由子设备驱动发起添加子设备拓扑结构，动态绑定详情可以参考[子设备接入协议]()。
+动态绑定是指由子设备驱动发起添加子设备拓扑结构，动态绑定详情可以参考[子设备接入协议](/uiot-edge/user_guide/subdevice_driver_access/subdev_access_protocol)。
 
 - 通过`add/delete` Topic添加或删除拓扑结构，子设备驱动实现子设备的动态绑定；
 - 通过`found` Topic添加或删除拓扑结构，除了子设备驱动外，还需要应用侧程序参与动态绑定；
@@ -151,7 +150,7 @@ TODO:
 
 3. 配置规则引擎转发上述数据到客户应用程序；
 
-4. 客户应用程序判断是否要绑定，并调用[添加拓扑API]()添加该设备的拓扑关系；
+4. 客户应用程序判断是否要绑定，并调用[添加拓扑API](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)添加该设备的拓扑关系；
 
 5. 客户应用程序下发添加成功消息；
 

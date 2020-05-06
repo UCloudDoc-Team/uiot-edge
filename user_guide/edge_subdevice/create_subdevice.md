@@ -7,7 +7,7 @@
 
 ## 创建子设备
 
-本节介绍了如何在UIoT Edge控制台快速创建子设备，并绑定到某个网关设备下。用户也可以通过UIoT Core控制台的[创建产品]()、[创建设备]()创建类型为【子设备】的产品及设备。
+本节介绍了如何在UIoT Edge控制台快速创建子设备，并绑定到某个网关设备下。用户也可以通过UIoT Core控制台的[创建产品](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_products)、[创建设备](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies)创建类型为【子设备】的产品及设备。
 
 ### 操作步骤 
 
@@ -20,7 +20,7 @@
    - 新建子设备：
      - 产品名称：名称长度为4-32个字符，可包含中文、字母、数字、`_`、`-`、`@`、`:`的组合
      - 产品描述：支持任意字符，长度限制0-100个字符
-     - 子设备序列号：可以参考[随机生成]()、[手动输入]()
+     - 子设备序列号：可以参考[随机生成、手动输入](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#创建单个或多个设备)
 6. 点击<确定>，创建或选择**子设备**成功，并成功绑定到当前网关设备下；
 
 ![添加子设备](../../images/添加子设备.png)
@@ -37,7 +37,7 @@
 
 #### 禁用和删除子设备
 
-UIoT Edge控制台提供了启用/禁用快捷入口。用户也可以通过UIoT Core平台操作子设备的禁用、删除，操作步骤普通设备的禁用、删除一致，可以参考[设备禁用]()和[设备删除]()。
+UIoT Edge控制台提供了启用/禁用快捷入口。用户也可以通过UIoT Core平台操作子设备的禁用、删除，操作步骤普通设备的禁用、删除一致，可以参考[设备禁用](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备禁用)和[设备删除](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备删除)。
 
 子设备删除注意事项：
 

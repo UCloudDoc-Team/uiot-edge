@@ -12,7 +12,7 @@ UIoT Edge提供子设备接入、函数计算、消息路由、消息远程SSH�
 - 边缘网关的启用、禁用、状态查询、部署、部署状态查询等；
 - 边缘网关的子设备列表、驱动分配、函数分配、消息路由配置、监控信息查看；
 - 边缘网关子设备的绑定、解绑、启用、禁用；
-- 边缘网关的通用设备功能，包括[Topic管理]()、[功能定义]()、[设备影子]()、[设备调试]()；
+- 边缘网关的通用设备功能，包括[Topic管理](https://docs.ucloud.cn/uiot-core/console_guide/product_device/topic)、[物模型](https://docs.ucloud.cn/uiot-core/console_guide/thingmode/what_is_thingmode)、[设备影子](https://docs.ucloud.cn/uiot-core/console_guide/device_shadow/waht_is_deviceshadow)、[设备调试](https://docs.ucloud.cn/uiot-core/console_guide/monitoring_maintenance/online_debug)；
 
 ### 子设备管理
 
@@ -22,7 +22,7 @@ UIoT Edge提供子设备接入、函数计算、消息路由、消息远程SSH�
 
 - 子设备的添加、删除、修改、查询；
 - 子设备所属网关信息；
-- 子设备的通用设备功能，包括[Topic管理]()、[功能定义]()、[设备影子]()、[设备调试]()；
+- 子设备的通用设备功能，包括[Topic管理](https://docs.ucloud.cn/uiot-core/console_guide/product_device/topic)、[物模型](https://docs.ucloud.cn/uiot-core/console_guide/thingmode/what_is_thingmode)、[设备影子](https://docs.ucloud.cn/uiot-core/console_guide/device_shadow/waht_is_deviceshadow)、[设备调试](https://docs.ucloud.cn/uiot-core/console_guide/monitoring_maintenance/online_debug)；
 
 ### 驱动管理
 

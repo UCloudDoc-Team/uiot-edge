@@ -2,7 +2,7 @@
 
 ## 分配函数
 
-在上一节[函数开发及添加]()后，本节进行函数的分配和运行调试。
+在上一节[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)后，本节进行函数的分配和运行调试。
 
 ### 分配步骤
 

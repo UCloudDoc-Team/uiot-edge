@@ -8,7 +8,7 @@
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverName|string|驱动名称|**Yes**|
 |Protocol|string|驱动协议|**Yes**|
@@ -61,7 +61,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreDriver
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverID|string|驱动的唯一ID|**Yes**|
 
@@ -96,7 +96,7 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreDriver
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverID|string|驱动ID|**Yes**|
 |MinVersion|string|驱动兼容的最小版本|**Yes**|
@@ -136,7 +136,7 @@ https://api.ucloud.cn/?Action=ModifyUIoTCoreDriver
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverID|string|驱动ID|**Yes**|
 
@@ -187,7 +187,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverInfo
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverName|string|驱动名称|No|
 |Offset|int|列表起始位置偏移量，默认为0|No|
@@ -255,7 +255,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FileName|string|驱动文件名称|**Yes**|
 |MinVersion|string|驱动适配的最小版本|**Yes**|
@@ -309,7 +309,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverUpdateURL
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DriverName|string|驱动名称|**Yes**|
 |DriverType|string|驱动类型|**Yes**|
@@ -366,7 +366,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverUploadURL
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|网关设备ProductSN|**Yes**|
 |DeviceSN|string|网关设备	DeviceSN  |**Yes**|
@@ -405,7 +405,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreEdgeDriverBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|ProductSN|**Yes**|
 |DeviceSN|string|DeviceSN|**Yes**|
@@ -457,7 +457,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreMultiDriverBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|网关设备ProductSN|**Yes**|
 |DeviceSN|string|网关设备DeviceSN|**Yes**|
@@ -537,7 +537,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreEdgeDriverList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |EdgeDriverID|string|网关驱动ID|**Yes**|
 
@@ -572,7 +572,7 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreEdgeDriverBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|网关产品序列号|**Yes**|
 
@@ -617,7 +617,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreBindableProductList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|产品序列号|**Yes**|
 |DeviceSN|string|设备序列号|No|
@@ -668,7 +668,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreBindableDeviceList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|子设备ProductSN|**Yes**|
 |DeviceSN|string|子设备DeviceSN|**Yes**|
@@ -708,7 +708,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreDriverSubDevBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |DeviceInfo.n|string|设备信息。内容为: productSN空格deviceSN|**Yes**|
 |EdgeDriverID|string|网关驱动ID|**Yes**|
@@ -760,7 +760,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreMultiSubDevBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |EdgeDriverID|string|网关的驱动ID|**Yes**|
 |Offset|int|列表起始位置偏移量，默认为0|No|
@@ -850,7 +850,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverSubDevList
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|子设备ProductSN|**Yes**|
 |DeviceSN|string|子设备DeviceSN|**Yes**|
@@ -888,7 +888,7 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreDriverSubBind
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |EdgeDriverID|string|网关驱动ID|**Yes**|
 |Config|string|网关驱动配置|**Yes**|
@@ -925,7 +925,7 @@ https://api.ucloud.cn/?Action=ModifyUIoTCoreEdgeDriverConf
 ### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
-|Region|string|地域。 参见 [地域和可用区列表](api/summary/regionlist)|**Yes**|
+| Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |ProductSN|string|子设备ProductSN|**Yes**|
 |DeviceSN|string|子设备DeviceSN|**Yes**|

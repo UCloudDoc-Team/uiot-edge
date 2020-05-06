@@ -230,11 +230,11 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 了解了【驱动配置】和【子设备配置】，用户可以基于官方Modbus采集UIoT Edge的Modbus设备。
 
-更多使用示例可以参考[最佳实践]()。
+更多使用示例可以参考[最佳实践](/uiot-edge/best_practices/get_temp_humi_with_offical_modbus)。
 
 ## 官方驱动使用流程
 
-1. [参考分配驱动]()分配官方驱动到当前网关
+1. [参考分配驱动](/uiot-edge/user_guide/subdevice_driver_access/driver_allocate)分配官方驱动到当前网关
 
    点击<已分配驱动> ，点击<分配驱动>，选择<官方>，选择<modbus>，点击<分配>，点击<关闭>
 

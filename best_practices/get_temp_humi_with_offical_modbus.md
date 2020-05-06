@@ -144,7 +144,7 @@
 
 1. 登录进入UCloud[物联网平台](https://console.ucloud.cn/uiot)
 
-2. 参考[创建网关及子设备]()，创建UIoT Edge产品，用于安装Edge软件
+2. 参考[创建网关及子设备](/uiot-edge/user_guide/edge_subdevice/create_edge)，创建UIoT Edge产品，用于安装Edge软件
 
    - 创建网关产品：树莓派4B；创建网关设备：5e09q6vlz2vgbkwv；
    - 创建子设备产品：SHT20；创建子设备设备：zbrnklpv9qqtzrtx；
@@ -156,7 +156,7 @@
 
    ![最佳实践网关绑定子设备](../images/最佳实践网关绑定子设备.png)
 
-3. 参考[安装软件]()，在树莓派上安装UIoT Edge运行时
+3. 参考[安装软件](/uiot-edge/user_guide/install/runtime_install)，在树莓派上安装UIoT Edge运行时
 
    - 选择需要安装的目录，运行安装脚本进行安装：
 
@@ -180,7 +180,7 @@
 
    ![最佳实践安装软件成功](../images/最佳实践安装软件成功.png)
 
-4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动]()
+4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver)
 
    - 驱动配置
 
@@ -260,7 +260,7 @@
      
      
   
-5. 参考[函数开发及添加]()，编写函数计算，为payload添加时间戳
+5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，为payload添加时间戳
    
 	
    ```python
@@ -295,7 +295,7 @@
 
    ![最佳实践分配函数](../images/最佳实践分配函数.png)
 
-6. 参考[设置消息路由]()，添加消息路由转发数据到云端
+6. 参考[设置消息路由](/uiot-edge/user_guide/message_route/overview)，添加消息路由转发数据到云端
 
    - 路由一：子设备 -> 函数计算
    - 路由二：函数计算->云平台（IoT Core）

@@ -106,15 +106,15 @@ cli.publish(topic, payload)
 
 #### 消息转发
 
-函数计算消息转发需要通过[添加消息路由]()来实现。函数计算将发送的消息流转到[消息路由]()，消息路由根据配置的路由规则发送给指定目的地，比如，另一个函数计算、本地设备、物联网云平台。
+函数计算消息转发需要通过[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)来实现。函数计算将发送的消息流转到[消息路由](/uiot-edge/user_guide/message_route/overview)，消息路由根据配置的路由规则发送给指定目的地，比如，另一个函数计算、本地设备、物联网云平台。
 
 ## 添加函数
 
 函数计算开发完成后，可以添加函数并进行测试：
 
-- 将函数计算上传到函数管理，见本节[操作步骤]()；
-- 通过下一节的[分配函数]()，将函数计算分配给网关；
-- [部署]()后，进行测试、使用。
+- 将函数计算上传到函数管理，见本节[操作步骤](/uiot-edge/user_guide/edge_computing/function_development#操作步骤)；
+- 通过下一节的[分配函数](/uiot-edge/user_guide/edge_computing/function_running#分配函数)，将函数计算分配给网关；
+- [部署](/uiot-edge/user_guide/edge_computing/function_running#部署函数)后，进行测试、使用。
 
 ### 操作步骤
 
@@ -140,7 +140,7 @@ cli.publish(topic, payload)
 
 6. <批量删除>：同时选择多个函数，点击<删除>按钮，可以批量删除函数；
 
-   > **注：函数删除需要先移除函数与网关的分配关系，参考[分配函数]()。**
+   > **注：函数删除需要先移除函数与网关的分配关系，参考[分配函数](/uiot-edge/user_guide/edge_computing/function_running#分配函数)。**
 
 ![新增函数](../../images/新增函数.png)
 
