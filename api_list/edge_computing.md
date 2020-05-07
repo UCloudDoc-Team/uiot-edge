@@ -12,8 +12,8 @@
 |ProjectId|string|项目ID。不填写为默认项目，子帐号必须填写。 请参考[GetProjectList接口](api/summary/get_project_list)|No|
 |FunctionName|string|创建的函数名称，函数名称支持26个英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度2-31|**Yes**|
 |Handler|string|函数处理方法名称，名称格式支持 "文件名称.方法名称" 形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求是 2-31 个字符。默认index.handler|No|
-|Runtime|string|运行环境，目前支持Python3.6，默认"python36"|No|
-|Code|string|函数的代码。目前为base64(file)|No|
+|Runtime|string|运行环境，目前支持Python3.6，默认"Python3"|No|
+|Code|string|函数的代码。目前为base64(code_text)|No|
 |Description|string|描述|No|
 
 ### 响应参数

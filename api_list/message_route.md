@@ -18,8 +18,8 @@
 |FilterTopic|string|过滤主题|**Yes**|
 |FilterTopicType|string|过滤主题类型（sys, user, local）|**Yes**|
 |Description|string|描述|No|
-|SrcID|string|源ID|No|
-|DestID|string|目的ID|No|
+|SrcID|string|使用的函数计算的名称|No|
+|DestID|string|使用的函数计算的名称|No|
 |IsCached|string|到云端是否缓存|No|
 
 ### 响应参数
@@ -137,8 +137,8 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreMessageRouter
 |CreateTime|int|路由创建时间|**Yes**|
 |FilterTopicType|string|过滤主题类型（sys,user, local）|**Yes**|
 |Description|string|描述|No|
-|SrcID|string|源ID|No|
-|DestID|string|目的ID|No|
+|SrcID|string|使用的函数计算的名称|No|
+|DestID|string|使用的函数计算的名称|No|
 |IsCached|bool|是否缓存到云端|No|
 |DeployTime|int|路由部署时间|No|
 
@@ -197,9 +197,9 @@ https://api.ucloud.cn/?Action=GetUIoTCoreMessageRouterList
 |RouterName|string|消息路由名称|No|
 |Description|string|描述|No|
 |SrcType|string|消息路由源类型|No|
-|SrcID|string|消息路由源ID|No|
+|SrcID|string|使用的函数计算的名称|No|
 |DestType|string|消息路由目的类型|No|
-|DestID|string|消息路由目的ID|No|
+|DestID|string|使用的函数计算的名称|No|
 |IsCached|string|是否缓存到云端|No|
 |FilterTopic|string|过滤主题|No|
 |FilterTopicType|string|过滤主题类型|No|
