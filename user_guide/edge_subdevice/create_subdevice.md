@@ -31,7 +31,7 @@
 
 #### 禁用和删除子设备
 
-UIoT Edge控制台提供了启用/禁用快捷入口。用户也可以通过UIoT Core平台操作子设备的禁用、删除，操作步骤普通设备的禁用、删除一致，可以参考[设备禁用](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备禁用)和[设备删除](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备删除)。
+UIoT Edge控制台提供了启用/禁用快捷入口。用户也可以通过UIoT Core平台操作子设备的禁用、删除，操作步骤与普通设备的禁用、删除一致，可以参考[设备禁用](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备禁用)和[设备删除](https://docs.ucloud.cn/uiot-core/console_guide/product_device/create_devcies#设备删除)。
 
 子设备删除注意事项：
 

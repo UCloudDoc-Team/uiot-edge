@@ -368,8 +368,9 @@
 | -------------- | ------ | ---------------- |
 | msg     | b:bytes | 绑定关系变化json格式字符串 |
 
+
     - msg消息格式
-    
+     
     ```json
     {
       "operaction":"add/delete",
@@ -436,9 +437,9 @@
 
   - 输入参数
     
-    | Parameter name | Type   | Description      |
-    | -------------- | ------ | ---------------- |
-    | timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
+| Parameter name | Type   | Description      |
+| -------------- | ------ | ---------------- |
+| timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
   
   - 返回值
     

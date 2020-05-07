@@ -134,10 +134,8 @@
   ```
   上行Topic：
   /${ProductSN}/${DeviceSN}/upload
-  下行Topic：
-  /${ProductSN}/${DeviceSN}/set
   ```
-
+  
   
 
 ## 操作步骤
@@ -167,18 +165,19 @@
 
      
 - 启动-停止UIoT Edge Runtime
-   
+  
   ```bash
      ./ucloud_iot_edge_process.sh --start
      ./ucloud_iot_edge_process.sh --stop
-     ```
-   
+  ```
   
-   
+  
+  
+
 ![最佳实践安装软件](../images/最佳实践安装软件.png)
-   
+
 ![最佳实践安装软件成功](../images/最佳实践安装软件成功.png)
-   
+
 4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver)
 
    - 驱动配置
@@ -252,8 +251,7 @@
      {
      	"channel": "channel",
      	"config": "sensor1",
-     	"slave_address": "0x01",
-     	"periods": 5    //周期为5s
+     	"slave_address": "0x01"
      }
      ```
      
