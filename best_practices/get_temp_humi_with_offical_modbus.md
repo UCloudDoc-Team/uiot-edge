@@ -191,7 +191,10 @@
          "channel": {
              "port": "/dev/ttyUSB0",
              "baudrate": 9600,
-             "method": "rtu"
+             "method": "rtu",
+             "timeout": 1,
+             "period": 5,
+             "time_wait": 0.2
          },
          "sensor1": {
              "read": [
@@ -245,7 +248,6 @@
          
      - 配置所属config类型；
      - 配置slave address；
-     - 配置为轮询方式，周期为5秒；
      
      ```json
      {

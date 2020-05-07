@@ -13,13 +13,14 @@
 ## 驱动SDK使用流程
 
 1. 下载Python3 SDK
-
+   
    ```bash
     pip3 install uiotedge_driver_link_sdk
    ```
 
 2. 创建`index.py`文件
-
+   
+   
    ```python
    from uiotedgedriverlinksdk.client import SubDevice, Config
    from uiotedgedriverlinksdk.exception import BaseEdgeException
@@ -119,7 +120,7 @@
    
 
 3. 打包驱动
-
+   
    ```bash
    pip3 install -t . uiotedge_driver_link_sdk  #打包驱动SDK，"-t ."，表示下载python包到当前目录，用于打包上传到驱动管理
    pip3 install -t . jsonpath otherpackages #打包自己的依赖
