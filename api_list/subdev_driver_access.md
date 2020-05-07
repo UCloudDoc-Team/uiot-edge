@@ -200,7 +200,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreDriverInfo
 |Action|string|操作名称|**Yes**|
 |DriverList|array|驱动列表|**Yes**|
 
-## DriverInfo
+## Driver
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DriverID|string|驱动ID|**Yes**|
@@ -419,7 +419,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreEdgeDriverBind
 |Action|string|操作名称|**Yes**|
 |FailedList|array|错误列表|**Yes**|
 
-## FailedDriver
+## Failed
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DriverID|string|驱动ID|**Yes**|
@@ -471,7 +471,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreMultiDriverBind
 |Action|string|操作名称|**Yes**|
 |EdgeDriverList|array|驱动列表|**Yes**|
 
-## EdgeDriverInfo
+## EdgeDriver
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |EdgeDriverID|string|网关驱动ID|**Yes**|
@@ -583,7 +583,7 @@ https://api.ucloud.cn/?Action=DeleteUIoTCoreEdgeDriverBind
 |Action|string|操作名称|**Yes**|
 |ProductSet|array|可绑定设备列表|**Yes**|
 
-## SimpleProductSet
+## ProductSet
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |ProductSN|string|产品序列号|**Yes**|
@@ -632,7 +632,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreBindableProductList
 |TotalCount|int|总记录数|**Yes**|
 |DeviceSet|array|设备列表|**Yes**|
 
-## SimpleDeviceSet
+## DeviceSet
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DeviceSN|string|设备序列号|**Yes**|
@@ -721,7 +721,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreDriverSubDevBind
 |Action|string|操作名称|**Yes**|
 |FailedList|array|错误设备列表|No|
 
-## FailedDevice
+## Failed
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |ProductSN|string|设备productsn|**Yes**|
@@ -773,14 +773,14 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreMultiSubDevBind
 |Action|string|操作名称|**Yes**|
 |SubDeviceList|array|设备列表|**Yes**|
 
-## SubDeviceInfo
+## SubDevice
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DeviceInfo|object||**Yes**|
 |EdgeDriverID|string|网关驱动ID|No|
 |Config|string|子设备配置|No|
 
-## SubDeviceSet
+## DeviceInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DeviceSN|string|设备序列号|**Yes**|

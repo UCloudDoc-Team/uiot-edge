@@ -63,7 +63,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreEdgeDeployment
 |Action|string|操作名称|**Yes**|
 |Info|object|重装参数|**Yes**|
 
-## ReinstallInfo
+## Info
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |CPUArch|string|网关CPU架构|No|
@@ -117,7 +117,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreReinstall
 |Action|string|操作名称|**Yes**|
 |Info|object|网关安装信息|**Yes**|
 
-## ReinstallInfo
+## lInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |CPUArch|string|网关CPU架构|No|
@@ -220,7 +220,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreEdgeDeploymentList
 |Action|string|操作名称|**Yes**|
 |DeploymentInfo|object|部署信息|**Yes**|
 
-## Deployment
+## DeploymentInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DeploymentID|string|部署ID|No|
@@ -265,7 +265,7 @@ GetUIoTCoreLatestEdgeDeploy
 |Action|string|操作名称|**Yes**|
 |DeployInfo|object||**Yes**|
 
-## DeploySet
+## DeployInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |ProductSN|string|网关设备产品序列号|**Yes**|

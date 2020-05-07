@@ -235,7 +235,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |RemoteSSHPort|int|远程SSH端口|No|
 |Driver|object|驱动信息|No|
 
-#### EdgeDriverInfo
+#### DriverInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |EdgeDriverID|string|网关驱动ID|**Yes**|

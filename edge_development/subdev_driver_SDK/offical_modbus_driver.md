@@ -130,19 +130,21 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
   
   - Modbus RTU：
     
-    - baudrate：串口波特率
-    - bytesize：数据位长度
-    - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；
-    - stopbits：停止位长度
-    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数
-    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数
-    - period：属性上报时间周期，单位为秒，支持小数
+    - port：必填，使用串口设备
+    - baudrate：必填，串口波特率
+    - bytesize：数据位长度，默认为8
+    - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；默认为'N'
+    - stopbits：停止位长度，默认为1
+    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
+    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
+    - period：属性上报时间周期，单位为秒，支持小数，默认为30
     - method：”rtu“
   - Modbus TCP：
-    - port：使用端口
-    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数
-    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数
-    - period：属性上报时间周期，单位为秒，支持小数
+    - address：必填，ip地址
+    - port：必填，使用端口
+    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
+    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
+    - period：属性上报时间周期，单位为秒，支持小数，默认为30
     - method：“tcp”
   
 - modbus_config 表示属性集合配置，名称自定义
