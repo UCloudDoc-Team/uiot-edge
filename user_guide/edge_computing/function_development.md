@@ -17,41 +17,48 @@
     "celsius": 120
 }
 表示 id 为 123456，温度为 120 摄氏度
-2. 函数计算根据条件筛选数据，示例中的筛选条件为
+2. 函数计算根据条件筛选数据，实例中的筛选条件为
 celsius > 100
 3. 将摄氏度转换为华氏度
 celsius -> fahrenheit
 4. 注意，消息流转需要配置相应的消息路由
 """
 
+
 import function_sdk
 import json
+import logging
 
-# 如果要使用publish，需要先调用 EdgeClient 构造函数，初始化一个client
+
+# 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
 cli = function_sdk.EdgeClient()
+
 
 def handler(event, context):
     try:
-        msg = json.loads(event["payload"])
-    except BaseException as err:
-        print("json loads error:", err)
-    # 筛选
-    if msg["celsius"] > 100:
-        # 使用原先的topic转发
-        topic = event['topic']
-        # 转换为华氏温标
-        msg["fahrenheit"] = msg["celsius"] * 1.8 + 32
-        try:
+        # 获取消息 topic
+        local_topic = event["topic"]
+        # payload 为 bytes 类型，需解码为字符串
+        msg = json.loads(event["payload"].decode('utf-8'))
+
+        if msg["celsius"] > 100:
+            # cloud_topic 可从 local_topic 经过自定义的转换得到
+            cloud_topic = local_topic + "/to_cloud"
+            # 转换为华氏温标
+            msg["fahrenheit"] = msg["celsius"] * 1.8 + 32
             payload = json.dumps(msg).encode('utf-8')
             # 向指定 topic 发送消息
-            cli.publish(topic, payload)
-        except BaseException as err:
-            print("json dumps error:", err)
+            cli.publish(cloud_topic, payload)
+
+    except Exception:
+        logging.exception(context)
 ```
 
 
 
 ### 函数计算组成
+
+函数计算需要用户完成两件事情，1. 收到消息，回调函数handler；2. 发送消息，publish；
 
 #### 消息触发回调接口
 
@@ -124,7 +131,7 @@ cli.publish(topic, payload)
 
 3. 点击<新增函数>，在弹出的对话框中输入函数计算的相关信息
 
-   - 函数名称：函数的名称，比如Hello_World；
+   - 函数名称：函数的名称，函数名称支持英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度2-31，比如Hello_World；
    - 开发语言：选择开发语言，目前支持Python3；
    - 函数代码：函数实现代码，暂不支持打包上传；
    - 函数描述：对函数计算的描述；

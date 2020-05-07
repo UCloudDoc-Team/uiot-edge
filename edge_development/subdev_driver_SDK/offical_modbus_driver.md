@@ -40,103 +40,109 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 ```json
 {
-    "channel1":{
-        "port":"/dev/ttyUSB0",
-        "baudrate":9600,
-        "method":"rtu"
-    },
-    "channel2":{
-        "port":9077,
-        "address":"localhost",
-        "method":"tcp"
-    },
-    "modbus_config":{
-        "read":[
-            {
-                "action":"coils",
-                "address":"0x0001",
-                "number":1,
-                "prop_list":[
-                    {
-                        "name":"data.coil1",
-                        "count":1
-                    }
-                ]
-            },
-            {
-                "action":"input_registers",
-                "address":"0x0003",
-                "number":1,
-                "prop_list":[
-                    {
-                        "name":"data.input_register",
-                        "count":1,
-                        "type": "int",
-                        "count": 1,
-                        "scale": 0.1,
-                        "offset": 0.0,
-                        "swap16": true,
-                        "swap32": false
-                    }
-                ]
-            },
-            {
-                "action":"discrete_inputs",
-                "address":"0x0001",
-                "number":4,
-                "prop_list":[
-                    {
-                        "name":"device.input1",
-                        "count":1
-                    },
-                    {
-                        "name":"device.input2",
-                        "count":1
-                    },
-                    {
-                        "name":"device.input3",
-                        "count":1
-                    },
-                    {
-                        "name":"device.input4",
-                        "count":1
-                    }
-                ]
-            }
-        ],
-        "write":{
-            "device.coil1":{
-                "action":"coil",
-                "address":"0x0001"
-            },
-            "device.coil2":{
-                "action":"register",
-                "address":"0x0002"
-            },
-            "device.coil1_coil2":{
-                "action":"coils",
-                "address":"0x0001"
-            }
-        },
-        "topic":"/{}/{}/upload",
-        "mode":"cycle"
-    }
+	"channel": {
+		"channel1": {
+			"port": "/dev/ttyUSB0",
+			"baudrate": 9600,
+			"method": "rtu",
+			"time_wait": 0.3,
+			"period": 5,
+            "timtout": 3
+		},
+		"channel2": {
+			"port": 9077,
+			"address": "localhost",
+			"method": "tcp",
+			"time_wait": 0.3,
+			"period": 5,
+            "timtout": 3
+		}
+	},
+
+	"modbus_config": {
+		"read": [{
+				"action": "coils",
+				"address": "0x0001",
+				"number": 1,
+				"prop_list": [{
+					"name": "data.coil1",
+					"count": 1
+				}]
+			},
+			{
+				"action": "input_registers",
+				"address": "0x0003",
+				"number": 1,
+				"prop_list": [{
+					"name": "data.input_register",
+					"count": 1,
+					"type": "int",
+					"scale": 0.1,
+					"offset": 0.0,
+					"swap16": true,
+					"swap32": false
+				}]
+			},
+			{
+				"action": "discrete_inputs",
+				"address": "0x0001",
+				"number": 4,
+				"prop_list": [{
+						"name": "device.input1",
+						"count": 1
+					},
+					{
+						"name": "device.input2",
+						"count": 1
+					},
+					{
+						"name": "device.input3",
+						"count": 1
+					},
+					{
+						"name": "device.input4",
+						"count": 1
+					}
+				]
+			}
+		],
+		"write": {
+			"device.coil1": {
+				"action": "coil",
+				"address": "0x0001"
+			},
+			"device.coil2": {
+				"action": "register",
+				"address": "0x0002"
+			},
+			"device.coil1_coil2": {
+				"action": "coils",
+				"address": "0x0001"
+			}
+		},
+		"topic": "/{}/{}/upload",
+		"mode": "cycle"
+	}
 }
 ```
 
-- channel1，channel2 表示不同的通道的自定义名称，支持Modbus RTU和Modbus TCP
+- channel: { channel1，channel2} 表示不同的通道的自定义名称，支持Modbus RTU和Modbus TCP
   
   - Modbus RTU：
     
     - baudrate：串口波特率
     - bytesize：数据位长度
-    
     - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；
     - stopbits：停止位长度
-    - timtout：超时时间
+    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数
+    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数
+    - period：属性上报时间周期，单位为秒，支持小数
     - method：”rtu“
   - Modbus TCP：
     - port：使用端口
+    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数
+    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数
+    - period：属性上报时间周期，单位为秒，支持小数
     - method：“tcp”
   
 - modbus_config 表示属性集合配置，名称自定义
@@ -216,15 +222,13 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 {
     "channel":"channel1",
     "config":"modbus_config",
-    "slave_address":1,
-    "periods":30
+    "slave_address":1
 }
 ```
 
 - channel：必填，选择使用驱动配置中的哪个通道
 - config：必填，选择使用驱动配置中的那个属性集合
 - slave_address：必填，设置该子设备的从地址
-- periods：必填，上报周期
 
 ### 实践
 

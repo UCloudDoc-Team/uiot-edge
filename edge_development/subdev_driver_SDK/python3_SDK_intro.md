@@ -23,68 +23,91 @@
    ```python
    from uiotedgedriverlinksdk.client import SubDevice, Config
    from uiotedgedriverlinksdk.exception import BaseEdgeException
+   from uiotedgedriverlinksdk import getLogger
    import logging
    import time
    import json
    
    # 配置log
-   FORMAT = ('%(asctime)-15s %(threadName)-15s '
-             '%(levelname)-8s %(module)-15s:%(lineno)-8s %(message)s')
-   logging.basicConfig(format=FORMAT)
-   log = logging.getLogger()
-   log.setLevel(logging.INFO)
+   log = getLogger()
+   log.setLevel(logging.DEBUG)
    
    # 主函数
    if __name__ == "__main__":
        try:
            # 1. 获取驱动及子设备配置信息
            driverConfig = Config().getDriverInfo()
+           log.info('driver config:{}'.format(driverConfig))
+   
+           # 从驱动配置获取设备数据上报周期
+           uploadPeriod = 5
+           if "period" in driverConfig.keys() and isinstance(driverConfig['period'], int):
+               uploadPeriod = int(driverConfig['period'])
+   
            deviceInfoList = Config().getDeviceInfos()
+           log.info('device list config:{}'.format(deviceInfoList))
        except Exception as e:
            log.error('load driver config error: {}'.format(str(e)))
            exit(1)
    
        try:
-           # 判断子设备列表长度不能为0
+           # 判断是否绑定子设备
            if len(deviceInfoList) < 1:
                log.error(
                    'subdevice null, please bind sub device for dirver')
                while True:
                    time.sleep(60)
-           # 2. 从子设备列表中获取第一个设备的设备信息及子设备配置               
+   
+           # 2. 从子设备列表中获取第一个设备的设备信息及子设备配置  
            subDeviceInfo = deviceInfoList[0]
            productSN = subDeviceInfo['productSN']
            deviceSN = subDeviceInfo['deviceSN']
-           deviceConfig = subDeviceInfo['config']
-           log.info('sub device config:{}'.format(deviceConfig))
    
-           # 定义驱动收到下行消息后的处理逻辑
-           def callback(topic: str, payload: b''):
-               log.info("recv message from {} : {}".format(topic, str(payload)))
    
            # 3. 创建一个SubDevice对象，注册收到消息后的回调
            #    所有对该设备的操作都是基于该对象，比如子设备的消息上下行、设备上下线
+   		
+           # 定义驱动收到下行消息后的处理逻辑
+           def callback(topic: str, payload: b''):
+               log.info("recv message from {} : {}".format(topic, str(payload)))
+   			
            subDevice = SubDevice(product_sn=productSN,
                                  device_sn=deviceSN, on_msg_callback=callback)
+   							  
            # 4. 子设备上线
            subDevice.login()
    
            # 5. 上报消息Topic，实际可以通过配置文件指定
+   		
+           # 获取当前子设备的配置
+           deviceConfig = subDeviceInfo['config']
+           log.info('sub device config:{}'.format(deviceConfig))
+   
            topic = "/{}/{}/upload".format(productSN, deviceSN)
+           if 'topic' in deviceConfig and isinstance(deviceConfig['topic'], str):
+   		    # 从子设备配置获取子设备上报topic定义
+               topic = deviceConfig['topic'].format(productSN, deviceSN)
+         
+           param = 'RelayStatus'
+           if 'paramName' in deviceConfig and isinstance(deviceConfig['paramName'], str):
+   		    # 从子设备配置获取子设备上报参数名称
+               param = deviceConfig['paramName']
+   
            i = 0
            while True:
-               # 获取子设备属性，用户需要根据实际业务定义
+               if i == 10000:
+                   i = 0
                relayStatus = ("on", "off")[i % 2 == 0]
                payload = {
                    "timestamp": time.time(),
-                   "relayStatus": relayStatus
+                   param: relayStatus
                }
                byts = json.dumps(payload).encode('utf-8')
    
-               # 上报消息到消息路由
                subDevice.publish(topic, byts)
-               log.info("uplaod {} : {}".format(topic, str(byts)))
-               time.sleep(5)
+               log.info("upload {} : {}".format(topic, str(byts)))
+   
+               time.sleep(uploadPeriod)
                i = i+1
    
        except BaseEdgeException:
