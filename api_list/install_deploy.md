@@ -53,7 +53,7 @@ https://api.ucloud.cn/?Action=CreateUIoTCoreEdgeDeployment
 |DeviceSN|string|网关设备序列号|**Yes**|
 |CPUArch|string|网关CPU架构,支持x86-64 和 arm7|**Yes**|
 |SoftwareVersion|string|安装软件版本 |**Yes**|
-|OS|string|网关操作系统 支持linux，windows，mac|**Yes**|
+|OS|string|网关操作系统 支持linux|**Yes**|
 |Mode|string|运行模式，默认为native, 支持 docker和native|No|
 
 ### 响应参数
