@@ -27,9 +27,9 @@
      - <编辑>：编辑该条消息路由；
      - <删除>:  删除该消息路由；
 
-![新增消息路由](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/新增消息路由.png)
+![新增消息路由](../../images/新增消息路由.png)
 
-![消息路由列表](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/消息路由列表.png)
+![消息路由列表](../../images/消息路由列表.png)
 
 
 
@@ -57,7 +57,7 @@
 1. 消息路由删除后，可以重新添加；
 2. 删除消息路由后需要重新部署才能生效；
 
-![删除消息路由](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/删除消息路由.png)
+![删除消息路由](../../images/删除消息路由.png)
 
 ## 部署消息路由
 
@@ -71,5 +71,5 @@
 4. 查看**部署状态**为部署成功
 5. 根据消息的上报情况，可以查看消息路由是否配置成功
 
-![部署消息路由](D:/iot_document/Ucloud/2020/UIoT-Edge/用户使用文档/uiot-edge/images/部署消息路由.png)
+![部署消息路由](../../images/部署消息路由.png)
 

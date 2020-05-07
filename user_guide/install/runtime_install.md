@@ -35,20 +35,17 @@ UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装�
 安装软件需要先[创建网关](/uiot-edge/user_guide/edge_subdevice/create_edge)。创建成功后，该网关具有唯一的产品序列号ProductSN、设备序列号DeviceSN、设备密码DeviceSecret，可以获取一键安装脚本进行软件的安装。
 
 1. 登录进入UCloud[物联网边缘网关](https://console.ucloud.cn/uiot_edge)
-2. 创建网关
-   - 根据[创建网关](/uiot-edge/user_guide/edge_subdevice/create_edge)文档说明及页面提示，点击<创建网关>，选择<新建网关产品>，创建一个网关产品，命名为**智能边缘网关**，并<随机生成>1个设备，点击<确定>；
+2. 根据[创建网关](/uiot-edge/user_guide/edge_subdevice/create_edge)文档说明及页面提示，点击<创建网关>，选择<新建网关产品>，创建一个网关产品，命名为**智能边缘网关**，并<随机生成>1个设备，点击<确定>；
 
-![安装软件创建产品](../../images/安装软件创建产品.png)
+![安装软件创建网关](../../images/安装软件创建网关.png)
 
 ### 安装软件
 
 1. 获取安装脚本
    - 通过<请选择产品>选择相应的边缘网关产品及边缘网关设备、点击<详情>，进入该边缘网关的管理界面；
    - 进入详情页后，选择<安装软件>；
-   - 选择<CPU架构> ---- x86_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
+   - 选择<CPU架构> ---- ARMv8_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
    - 在弹出的**信息确认**框内，检查相关配置，获取软件包下载命令。
-
-![安装软件网关管理详情](../../images/安装软件网关管理详情.png)
 
 ![安装软件安装软件按钮](../../images/安装软件安装软件按钮.png)
 
@@ -60,7 +57,7 @@ UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装�
 
      ```bash
      # 脚本安装依赖`curl`工具，需要提前安装。
-     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && chmod +x ucloud_iot_edge_process.sh && ./ucloud_iot_edge_process.sh --install X86_64 1.0 && ./ucloud_iot_edge_process.sh --config p92zaxzsoeaz6xr7 je1n3q1y44gsggnp ksr2nectpmfg4i2x && ./ucloud_iot_edge_process.sh --start
+     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp 6ug7n9qnxd0safyx t77wpuvistiutxw5 && ./ucloud_iot_edge_process_proc.sh --start
      ```
 
      ![安装软件命令](../../images/安装软件命令.png)
@@ -97,7 +94,7 @@ UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装�
 
 1. 进入物联网平台控制台，依次点击<网关管理>、<网关列表>、<选择产品>；
 2. 点击<安装软件>，详情请参考[安装软件](/uiot-edge/user_guide/install/runtime_install)；
-3. 选择<CPU架构> ---- x86_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
+3. 选择<CPU架构> ---- ARMv8_64、<适用软件版本> ---- 1.0、<操作系统版本> ---- linux，<运行模式> ---- 进程或容器，点击<确定>；
 4. 在弹出的**信息确认**框内，可以查看相关配置，获取软件包下载命令；
 5. 登录网关设备，粘贴并运行上述安装命令；
 6. 安装成功后，登录控制台确认边缘网关状态为**在线**。

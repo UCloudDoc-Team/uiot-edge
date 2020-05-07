@@ -20,7 +20,7 @@
 ### 通过控制台绑定
 
 - 通过网关列表的详情页，添加子设备到网关的绑定关系
-  2. 点击<网关列表>，选择需要绑定的网关产品；
+  1. 点击<网关列表>，选择需要绑定的网关产品；
   3. 选择对应的网关设备序列号，点击<详情>；
   4. 在滑窗中点击<子设备列表>；
   5. 点击<添加设备>，选择<设备产品>，新建或选择现有的子设备，点击确定，添加设备；
@@ -31,6 +31,8 @@
 ### 调用API接口绑定
 
 接口[AddUIoTCoreSubDeviceTopo](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)提供了绑定子设备到固定网关的能力，参考[AddUIoTCoreSubDeviceTopo](/uiot-edge/api_list/gateway_subdevice#AddUIoTCoreSubDeviceTopo)。
+
+
 
 
 ## 动态绑定

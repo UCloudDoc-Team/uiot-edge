@@ -150,36 +150,35 @@
    - 创建子设备产品：SHT20；创建子设备设备：zbrnklpv9qqtzrtx；
    - 将创建的子设备zbrnklpv9qqtzrtx绑定到网关设备5e09q6vlz2vgbkwv下；
 
-   ![最佳实现创建网关产品和设备](../images/最佳实践创建网关产品和设备.png)
+   ![最佳实践创建网关产品和设备](../images/最佳实践创建网关产品和设备.png)
 
    ![最佳实践创建子设备产品](../images/最佳实践创建子设备产品.png)
 
-   ![最佳实践网关绑定子设备](../images/最佳实践网关绑定子设备.png)
+   
 
 3. 参考[安装软件](/uiot-edge/user_guide/install/runtime_install)，在树莓派上安装UIoT Edge运行时
 
    - 选择需要安装的目录，运行安装脚本进行安装：
 
      ```bash
-     cd /uiot-edge
-     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && chmod +x ucloud_iot_edge_process.sh && source ucloud_iot_edge_process.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process.sh --config 1.0 p92zaxzsoeaz6xr7 5e09q6vlz2vgbkwv q7h1kv5yvl4zbj2a && ./ucloud_iot_edge_process.sh --start
+     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp kw4aud0zjcrdma39 pfa4vxglnwm9kez8 && ./ucloud_iot_edge_process_proc.sh --start
      ```
-
      
 
-   - 启动-停止UIoT Edge Runtime
-
-     ```bash
+     
+- 启动-停止UIoT Edge Runtime
+   
+  ```bash
      ./ucloud_iot_edge_process.sh --start
      ./ucloud_iot_edge_process.sh --stop
      ```
-
-     
-
-   ![最佳实践安装软件](../images/最佳实践安装软件.png)
-
-   ![最佳实践安装软件成功](../images/最佳实践安装软件成功.png)
-
+   
+  
+   
+![最佳实践安装软件](../images/最佳实践安装软件.png)
+   
+![最佳实践安装软件成功](../images/最佳实践安装软件成功.png)
+   
 4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver)
 
    - 驱动配置
@@ -282,7 +281,7 @@
        print(event)
        
        topic = event['topic']
-       msg = json.loads(str(event['payload']))
+       msg = json.loads(event['payload'].decode('utf-8'))
        msg['timestamp'] = int(time.time())
        
        payload = json.dumps(msg).encode('utf-8')
