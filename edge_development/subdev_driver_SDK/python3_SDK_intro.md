@@ -18,7 +18,7 @@
     pip3 install uiotedge_driver_link_sdk
    ```
 
-2. 创建`index.py`
+2. 创建`index.py`文件
 
    ```python
    from uiotedgedriverlinksdk.client import SubDevice, Config
@@ -440,7 +440,7 @@
 | Parameter name | Type   | Description      |
 | -------------- | ------ | ---------------- |
 | timeout     | int | 等待获取拓扑绑定关系超时时间，单位秒 |
-  
+
   - 返回值
     
 | Parameter name | Type   | Description      |
