@@ -187,11 +187,11 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 }
 ```
 
-# GetUIoTCoreSubDeviceList
+## GetUIoTCoreSubDeviceList
 
 获取子设备列表
 
-# Request Parameters
+### 请求参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 | Region         | string | 地域。 参见 [地域和可用区列表](https://docs.ucloud.cn/api/summary/regionlist)  |  **Yes** |
@@ -202,7 +202,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |Limit|int|返回数据长度，默认为20，最大100|No|
 |Status.n|string|子设备状态筛选字段|No|
 
-# Response Elements
+### 响应参数
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |RetCode|int|返回码|**Yes**|
@@ -210,7 +210,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |TotalCount|int|总记录数|**Yes**|
 |DeviceSet|array|设备列表|**Yes**|
 
-## SubDeviceData
+#### SubDeviceData
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DeviceSN|string|设备序列号|**Yes**|
@@ -235,7 +235,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |RemoteSSHPort|int|远程SSH端口|No|
 |Driver|object|驱动信息|No|
 
-## EdgeDriverInfo
+#### EdgeDriverInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |EdgeDriverID|string|网关驱动ID|**Yes**|
@@ -245,7 +245,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |DriverInfo|object|驱动信息|No|
 |ConatinerConfig|string|驱动的容器配置|No|
 
-## DriverInfo
+#### DriverInfo
 |Parameter name|Type|Description|Required|
 |---|---|---|---|
 |DriverID|string|驱动ID|**Yes**|
@@ -260,7 +260,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreGatewayBySubDevice
 |Description|string|驱动描述|No|
 |Config|string|驱动配置|No|
 
-# Request Example
+### 请求示例
 ```
 https://api.ucloud.cn/?Action=GetUIoTCoreSubDeviceList
 &Region=cn-zj
@@ -272,7 +272,7 @@ https://api.ucloud.cn/?Action=GetUIoTCoreSubDeviceList
 &Status.n=HWAxwlWd
 ```
 
-# Response Example
+### 响应示例
 ```
 {
     "Action": "GetUIoTCoreSubDeviceListResponse", 
