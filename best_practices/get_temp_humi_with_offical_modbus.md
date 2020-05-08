@@ -44,8 +44,6 @@
 
    湿度值=0x222，转换成十进制546，实际湿度值=546 / 10 = 54.6%；
 
-   > **注：温度是有符号**, 16进制数，温度值=**0xFF33**，转换成十进制 **-205**，实际温度= **-20.5℃**；
-
 
 #### 3. 修改温湿度修正值
 
@@ -144,9 +142,9 @@
 
 2. 参考[创建网关及子设备](/uiot-edge/user_guide/edge_subdevice/create_edge)，创建UIoT Edge产品，用于安装Edge软件
 
-   - 创建网关产品：树莓派4B；创建网关设备：5e09q6vlz2vgbkwv；
-   - 创建子设备产品：SHT20；创建子设备设备：zbrnklpv9qqtzrtx；
-   - 将创建的子设备zbrnklpv9qqtzrtx绑定到网关设备5e09q6vlz2vgbkwv下；
+   - 创建网关产品：树莓派4B；创建网关设备：dsc7thlyr091znps；
+   - 创建子设备产品：SHT20；创建子设备设备：8xtrlyp0q4jxskzv；
+   - 将创建的子设备8xtrlyp0q4jxskzv绑定到网关设备dsc7thlyr091znps下；
 
    ![最佳实践创建网关产品和设备](../images/最佳实践创建网关产品和设备.png)
 
@@ -159,7 +157,7 @@
    - 选择需要安装的目录，运行安装脚本进行安装：
 
      ```bash
-     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp kw4aud0zjcrdma39 pfa4vxglnwm9kez8 && ./ucloud_iot_edge_process_proc.sh --start
+     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process_proc.sh --start
      ```
      
 
@@ -188,58 +186,56 @@
      
      ```json
      {
-         "channel": {
-             "port": "/dev/ttyUSB0",
-             "baudrate": 9600,
-             "method": "rtu",
-             "timeout": 1,
-             "period": 5,
-             "time_wait": 0.2
-         },
-         "sensor1": {
-             "read": [
-                 {
-                     "action": "input_registers",
-                     "address": "0x0001",
-                     "number": 2,    //读取两个寄存器
-                     "prop_list": [
-                         {
-                             "name": "data.temperature",
-                             "type": "int",
-                             "count": 1,  //返回的第一个寄存器值
-                             "scale": 0.1,
-                             "offset": 0
-                         },
-                         {
-                             "name": "data.humidity",
-                             "type": "int",
-                             "count": 1,  //返回的第二个寄存器值
-                             "scale":0.1,
-                             "offset":0
-                         }
-                     ]
-                 }
-             ],
-             "write": {
-                 "data.temperature_fix": {
-                     "action": "register",
-                     "address": "0x0103"
-                 },
-                 "data.humidity_fix": {
-                     "action": "register",
-                     "address": "0x0104"
-                 },
-                 "data.temp_humi_fix": {
-                     "action": "registers",
-                     "address": "0x0103"
-                 }
-             },
-             "topic": "/{}/{}/upload",
-             "mode": "cycle"
-         }
+     	"channel": {
+     		"ttyUSB0": {
+     			"port": "/dev/ttyUSB0",
+     			"baudrate": 9600,
+     			"method": "rtu",
+     			"timeout": 1,
+     			"period": 5,
+     			"time_wait": 0.2
+     		}
+     	},
+     	"dht20": {
+     		"read": [{
+     			"action": "input_registers",
+     			"address": "0x0001",
+     			"number": 2, //读取两个寄存器
+     			"prop_list": [{
+     					"name": "data.temperature",
+     					"type": "int",
+     					"count": 1, //返回的第一个寄存器值
+     					"scale": 0.1,
+     					"offset": 0
+     				},
+     				{
+     					"name": "data.humidity",
+     					"type": "int",
+     					"count": 1, //返回的第二个寄存器值
+     					"scale": 0.1,
+     					"offset": 0
+     				}
+     			]
+     		}],
+     		"write": {
+     			"data.temperature_fix": {
+     				"action": "register",
+     				"address": "0x0103"
+     			},
+     			"data.humidity_fix": {
+     				"action": "register",
+     				"address": "0x0104"
+     			},
+     			"data.temp_humi_fix": {
+     				"action": "registers",
+     				"address": "0x0103"
+     			}
+     		},
+     		"topic": "/{}/{}/upload",
+     		"mode": "cycle"
+     	}
      }
      ```
-     
      
      
 - 子设备配置
@@ -251,14 +247,16 @@
      
      ```json
      {
-     	"channel": "channel",
-     	"config": "sensor1",
+     	"channel": "ttyUSB0",
+     	"config": "dht20",
      	"slave_address": "0x01"
      }
      ```
      
-     
-  
+
+![最佳实践驱动配置](../images/最佳实践驱动配置.png)
+![最佳实践子设备配置](../images/最佳实践子设备配置.png)
+
 5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，为payload添加时间戳
    
 	

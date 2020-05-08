@@ -41,7 +41,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 ```json
 {
 	"channel": {
-		"channel1": {
+		"ttyUSB0": {
 			"port": "/dev/ttyUSB0",
 			"baudrate": 9600,
 			"method": "rtu",
@@ -49,7 +49,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 			"period": 5,
             "timtout": 3
 		},
-		"channel2": {
+		"TCP9077": {
 			"port": 9077,
 			"address": "localhost",
 			"method": "tcp",
@@ -222,7 +222,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 ```json
 {
-    "channel":"channel1",
+    "channel":"ttyUSB0",
     "config":"modbus_config",
     "slave_address":1
 }
