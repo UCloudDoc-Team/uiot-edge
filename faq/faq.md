@@ -6,7 +6,7 @@
 
 2. UIoT Edge函数计算如何使用？
 
-   支持Python3，在handler函数里面，处理业务逻辑（如消息过滤、加工），使用function_sdk包里的EdgeClient，实现消息发送，配合消息路由实现编排。请参考函数计算的例子。
+   支持Python3，在handler函数里面，处理业务逻辑（如消息过滤、加工），使用function_sdk包里的EdgeClient，实现消息发送，配合消息路由实现编排。请参考[函数计算的例子](/uiot-edge/user_guide/edge_computing/function_development)。
 
 3. 子设备上云，需要的最少配置什么？
 
@@ -14,7 +14,7 @@
 
 4. 如何实现本地子设备联动？
 
-   可以通过函数计算，实现本地场景联动。
+   可以通过函数计算与消息路由，实现本地场景联动。
 
 5. 如何配置，实现本地缓存断网续传？
 
