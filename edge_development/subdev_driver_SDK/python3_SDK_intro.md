@@ -6,7 +6,7 @@
 
 ## 使用要求
 
-- Python 版本 ≥ Python 3.6.0
+- Python 版本 ≥ 3.5.3
 
 
 
