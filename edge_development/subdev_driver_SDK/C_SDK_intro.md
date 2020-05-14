@@ -168,6 +168,7 @@ edge_status edge_common_init(void)
 C SDK驱动初始化，该函数必须要调用。
 
 - 输入参数
+  
    无
 
 - 返回值
