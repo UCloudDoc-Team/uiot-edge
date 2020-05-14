@@ -183,9 +183,11 @@ char * edge_get_driver_info(void)
 获取驱动配置信息。
 
 - 输入参数
-   无
-
+   
+无
+   
 - 返回值
+  
   返回驱动配置json字符串。
 
 ### edge_get_device_info
@@ -196,9 +198,11 @@ char * edge_get_device_info(void)
 获取子设备列表及子设备配置。
 
 - 输入参数
-   无
-
+   
+无
+   
 - 返回值
+  
   返回子设备列表及子设备配置json字符串，字符串示例如下：
   
   ```json
