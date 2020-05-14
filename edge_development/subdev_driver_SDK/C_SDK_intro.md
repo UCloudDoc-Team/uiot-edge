@@ -280,10 +280,11 @@ edge_status edge_subdev_login_sync(subdev_client *pst_subdev_client, uint32_t ti
 
 - 输入参数
 
-| Parameter name | Type | Description                                                  |
-| -------------- | ---- | ------------------------------------------------------------ |
-| pst_subdev_client        | subdev_client  | 子设备句柄 |
-| time_out_ms        | uint32_t  | 同步时使用，等待超时时间，单位毫秒                             |
+| Parameter name    | Type          | Description                        |
+| ----------------- | ------------- | ---------------------------------- |
+| pst_subdev_client | subdev_client | 子设备句柄                         |
+| time_out_ms       | uint32_t      | 同步时使用，等待超时时间，单位毫秒 |
+
 - 返回值
   - 成功 - 返回EDGE_OK
   - 失败 - 返回类型参考：edge_status枚举
@@ -298,10 +299,11 @@ edge_status edge_subdev_logout_sync(subdev_client *pst_subdev_client, uint32_t t
 
 - 输入参数
 
-| Parameter name | Type | Description                                                  |
-| -------------- | ---- | ------------------------------------------------------------ |
-| pst_subdev_client        | subdev_client  | 子设备句柄 |
-| time_out_ms        | uint32_t  | 同步时使用，等待超时时间，单位毫秒                             |
+| Parameter name    | Type          | Description                        |
+| ----------------- | ------------- | ---------------------------------- |
+| pst_subdev_client | subdev_client | 子设备句柄                         |
+| time_out_ms       | uint32_t      | 同步时使用，等待超时时间，单位毫秒 |
+
 - 返回值
   - 成功 - 返回EDGE_OK
   - 失败 - 返回类型参考：edge_status枚举
@@ -316,9 +318,9 @@ edge_status edge_subdev_login_async(subdev_client *pst_subdev_client)
 
 - 输入参数
 
-| Parameter name | Type | Description                                                  |
-| -------------- | ---- | ------------------------------------------------------------ |
-| pst_subdev_client        | subdev_client  | 子设备句柄 |
+| Parameter name    | Type          | Description |
+| ----------------- | ------------- | ----------- |
+| pst_subdev_client | subdev_client | 子设备句柄  |
 
 - 返回值
   - 成功 - 返回EDGE_OK
@@ -333,9 +335,9 @@ edge_status edge_subdev_logout_async(subdev_client *pst_subdev_client)
 
 - 输入参数
 
-| Parameter name | Type | Description                                                  |
-| -------------- | ---- | ------------------------------------------------------------ |
-| pst_subdev_client        | subdev_client  | 子设备句柄 |
+| Parameter name    | Type          | Description |
+| ----------------- | ------------- | ----------- |
+| pst_subdev_client | subdev_client | 子设备句柄  |
 
 - 返回值
   - 成功 - 返回EDGE_OK
@@ -353,9 +355,9 @@ void edge_set_topo_notify_handle(edge_topo_notify_handler topo_notify_handle)
 
 - 输入参数
 
-| Parameter name | Type     | Description              |
-| -------------- | -------- | ------------------------ |
-| topo_notify_handle       | edge_topo_notify_handler | 绑定关系发生改变回调函数 |
+| Parameter name     | Type                     | Description              |
+| ------------------ | ------------------------ | ------------------------ |
+| topo_notify_handle | edge_topo_notify_handler | 绑定关系发生改变回调函数 |
 
 回调函数：
 
@@ -375,9 +377,9 @@ void edge_set_subdev_status_handle(edge_subdev_status_handler subdev_status_hand
 
 - 输入参数
 
-| Parameter name | Type     | Description              |
-| -------------- | -------- | ------------------------ |
-| subdev_status_handle       | edge_subdev_status_handler | 绑定关系发生改变回调函数 |
+| Parameter name       | Type                       | Description              |
+| -------------------- | -------------------------- | ------------------------ |
+| subdev_status_handle | edge_subdev_status_handler | 绑定关系发生改变回调函数 |
 
 回调函数：
 
