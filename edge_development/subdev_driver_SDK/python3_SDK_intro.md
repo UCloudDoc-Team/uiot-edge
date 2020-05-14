@@ -1,6 +1,6 @@
 # Python3 SDK使用
 
-本文介绍Python3 SDK的使用，用户可以根据提供的API接口以及子设备的协议编写子设备数据上行及下行逻辑。
+本文介绍Python3 SDK的使用，用户可以根据提供的API接口以及[子设备的协议](/uiot-edge/user_guide/subdevice_driver_access/subdev_access_protocol)编写子设备数据上行及下行逻辑。
 
 
 
@@ -20,6 +20,12 @@
 
 2. 创建`index.py`文件
    
+   下面的代码给出了一个子设备驱动需要完成的最基本功能，包括4部分：
+   
+   - 解析驱动及子设备配置信息，获取配置及子设备列表
+   - 创建子设备对象，并配置下行消息回调
+   - 子设备上线`login`
+   - 发布消息
 ```python
 from uiotedgedriverlinksdk.client import SubDevice, Config
 from uiotedgedriverlinksdk.exception import BaseEdgeException
