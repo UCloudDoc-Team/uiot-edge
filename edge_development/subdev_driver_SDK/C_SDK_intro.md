@@ -32,8 +32,7 @@ git clone https://github.com/ucloud/uiotedge-driver-sdk-c.git
 - 发布消息
 
 ```c
-#include "edge.h"
-#include "cJSON.h"
+// 注：本部分代码，只做核心代码展示，省略错误处理、内存释放等代码，用户使用，请参考文件 ./samples/uiot_edge_test.c
 
 // 定义下行消息callback接口
 static void edge_normal_msg_handler_user(char *topic, char *payload)
@@ -54,11 +53,12 @@ int main(int argc, char **argv)
     char *time_stamp = NULL;
     const char *switch_str[2] = {"on", "off"};
     int loop = 0;
+    
+    topic_str = (char *)malloc(512);
+    time_stamp = (char *)malloc(512);
 
     // 1. SDK初始化
     status = edge_common_init();
-    topic_str = (char *)malloc(512);
-    time_stamp = (char *)malloc(512);
 
     // 2.1 获取并解析驱动配置
     /*
@@ -70,12 +70,10 @@ int main(int argc, char **argv)
         }
     }
     */
-    dirver_info_cfg = cJSON_Parse(edge_get_driver_info());
+    dirver_info_cfg = cJSON_Parse(edge_get_driver_info()); 
 
+    // 解析出配置文件中的配置信息
     cJSON *period = cJSON_GetObjectItem(dirver_info_cfg, "period");
-
-
-    // 解析配置取出msg_config下的topic
     cJSON *config_item = cJSON_GetObjectItem(dirver_info_cfg, "msg_config");
     cJSON *topic_format_json = cJSON_GetObjectItem(config_item, "topic");
     cJSON *topic_param_name_json = cJSON_GetObjectItem(config_item, "param_name");
@@ -86,26 +84,20 @@ int main(int argc, char **argv)
     // 判断是否绑定子设备，并获取设备列表的productsn和devicesn，将设备上线
     if(cJSON_GetArraySize(device_list_cfg) > 0)
     {
+        // 解析出子设备列表信息
         cJSON *arrary_item = cJSON_GetArrayItem(device_list_cfg, 0);
         cJSON *arrary_productsn = cJSON_GetObjectItem(arrary_item, "productSN");
         cJSON *arrary_devicesn = cJSON_GetObjectItem(arrary_item, "deviceSN");
-        // 组成发送消息topic
+        
+        // 根据配置文件，拼装发布消息Topic
         memset(topic_str, 0, 512);
-        if(NULL != topic_format_json)
-        {
-            snprintf(topic_str, 512, topic_format_json->valuestring, arrary_productsn->valuestring, arrary_devicesn->valuestring);
-        }
-        else
-        {
-            snprintf(topic_str, 512, "/%s/%s/upload", arrary_productsn->valuestring, arrary_devicesn->valuestring);
-        }
+        snprintf(topic_str, 512, "/%s/%s/upload", arrary_productsn->valuestring, arrary_devicesn->valuestring);
 
         // 3. 初始化一个子设备，并传入回调函数接口
         subdevClient = edge_subdev_construct(arrary_productsn->valuestring, arrary_devicesn->valuestring, edge_normal_msg_handler_user);
 
         // 4. 子设备登录
         status = edge_subdev_login_async(subdevClient);
-
     }
 
     while(1)
