@@ -32,7 +32,8 @@ git clone https://github.com/ucloud/uiotedge-driver-sdk-c.git
 - 发布消息
 
 ```c
-// 注：本部分代码，只做核心代码展示，省略错误处理、内存释放等代码，用户使用，请参考文件 ./samples/uiot_edge_test.c
+/* 注：本部分代码，只做核心代码展示，省略错误处理、内存释放等代码，
+   用户使用，请参考文件 ./samples/uiot_edge_test.c */
 
 // 定义下行消息callback接口
 static void edge_normal_msg_handler_user(char *topic, char *payload)
