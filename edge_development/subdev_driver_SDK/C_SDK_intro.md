@@ -1,6 +1,6 @@
 # C SDK使用
 
-本文介绍子设备驱动C SDK的使用，用户可以根据提供的API接口以及[子设备的协议](/uiot-edge/user_guide/subdevice_driver_access/subdev_access_protocol)编写子设备数据上行及下行逻辑。
+本文介绍子设备驱动C SDK的使用（模拟继电器开关状态的变化上报），用户可以根据提供的API接口以及[子设备的协议](/uiot-edge/user_guide/subdevice_driver_access/subdev_access_protocol)编写子设备数据上行及下行逻辑。
 
 
 ## 使用说明
