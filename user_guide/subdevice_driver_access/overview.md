@@ -10,7 +10,7 @@ UIoT Edge提供[子设备驱动SDK](/uiot-edge/edge_development/subdev_driver_SD
 
 ## 驱动框架支持情况
 
-UIoT Edge子设备驱动SDK支持Python3。
+UIoT Edge子设备驱动SDK支持Python3和C语言。
 
 | 官方驱动          | 自定义驱动                      |
 | ----------------- | ------------------------------- |
