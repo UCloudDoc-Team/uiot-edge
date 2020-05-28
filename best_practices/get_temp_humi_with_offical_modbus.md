@@ -25,7 +25,7 @@
    - 串口设备：/dev/ttyUSB0
    - 波特率： 9600
    - 8位数据，1位停止，无校验 
-   
+
 #### 2. 获取温湿度Modbus命令
 
    - **主机读取温度和湿度命令帧(0x04)** ：
@@ -250,7 +250,7 @@
      {
      	"channel": "ttyUSB0",
      	"config": "dht20",
-     	"slave_address": "0x01"
+     	"slave_address": 1
      }
      ```
      
