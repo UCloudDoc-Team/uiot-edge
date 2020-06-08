@@ -42,17 +42,19 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 {
 	"channel": {
 		"ttyUSB0": {
-			"port": "/dev/ttyUSB0",
+			"method": "serial",
+            "format": "rtu",
+            "port": "/dev/ttyUSB0",
 			"baudrate": 9600,
-			"method": "rtu",
 			"time_wait": 0.3,
 			"period": 5,
             "timtout": 3
 		},
 		"TCP9077": {
-			"port": 9077,
-			"address": "localhost",
 			"method": "tcp",
+            "format": "socket",
+			"address": "localhost",
+            "port": 9077,
 			"time_wait": 0.3,
 			"period": 5,
             "timtout": 3
@@ -126,26 +128,30 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 }
 ```
 
-- channel: { channel1，channel2} 表示不同的通道的自定义名称，支持Modbus RTU和Modbus TCP
+- channel: { channel1，channel2} 表示不同的通道的自定义名称，官方驱动支持Modbus RTU、Modbus TCP、Modbus RTU over TCP。通道的配置分为数据传输层（method）和数据帧格式层（format）。通过数据传输层和数据帧格式层的不同组合可以组合成“Modbus RTU”，“Modbus ASCII”，“Modbus TCP”，“Modbus RTU over TCP”等不同形式。
   
-  - Modbus RTU：
+  - formate：必填，数据帧格式的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节帧格式介绍](/uiot-edge/edge_devplopment/subdev_driver_SDK/offical_modbus_driver#帧格式介绍)
+    
+  - method：必填，使用数据传输层类型，包括"serial"，"tcp"，"udp"三种
+    
+    **当method选择为"serial"是，需要配置以下内容：**
     
     - port：必填，使用串口设备
     - baudrate：必填，串口波特率
     - bytesize：数据位长度，默认为8
     - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；默认为'N'
     - stopbits：停止位长度，默认为1
-    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
-    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
-    - period：属性上报时间周期，单位为秒，支持小数，默认为30
-    - method：”rtu“
-  - Modbus TCP：
+    
+    **当method选择为"tcp"或"udp"时，需要配置以下内容：**
+    
     - address：必填，ip地址
     - port：必填，使用端口
-    - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
-    - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
-    - period：属性上报时间周期，单位为秒，支持小数，默认为30
-    - method：“tcp”
+  
+  - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
+  - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
+  - period：属性上报时间周期，单位为秒，支持小数，默认为30
+    
+      
   
 - modbus_config 表示属性集合配置，名称自定义
 
@@ -214,7 +220,72 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
   }
   ```
 
-  
+#### formate字段--报文格式介绍
+
+##### 1. rtu
+
+```
+ [ Start Wait ] [Address ][ Function Code] [ Data ][ CRC ][  End Wait  ]
+  3.5 chars       1b          1b               Nb     2b     3.5 chars
+```
+
+- 报文由时长至少3.5个字符时间的空间间隔区分
+
+- 整个报文帧必须以连续的字符流发送，如果两个字符之间的空闲大于1.5个字符时间，则报文帧认为不完整，应该被接收点丢弃
+
+| 波特率 | 1.5个字符(18 bits) | 3.5个字符(18 bits)     |
+| ------ | ------------------ | ---- |
+| 1200 | 13333.3 us | 31666.7 us |
+| 4800 | 3333.3 us | 7916.7 us |
+| 9600 | 1666.7 us | 3958.3 us |
+| 19200 | 833.3 us | 1979.2 us |
+| 38400 | 416.7 us | 989.6 us |
+
+1 字符 = start + 8 bits + parity + stop = 11 bits
+(1/波特率)*(bits) = delay seconds  
+
+##### 2. ascii
+
+    [ Start ][Address ][ Function ][ Data ][ LRC ][ End ]
+      1c         2c         2c        Nc      2c    2c
+- 报文开头Start为英文冒号”:”（3A）
+- 报文结尾End为”\r”（0D）、”\n”（0A）
+- 报文数据用ascii的方式表示十六进制的0~9，A~F
+
+##### 3. socket
+
+```
+[         MBAP Header         ] [ Function Code] [ Data ] 
+[ tid ][ pid ][ length ][ uid ]
+  2b     2b     2b        1b           1b           Nb
+```
+
+- MBAP为报文头，共计7字节
+- tid - 事务处理标识：为报文的序列号，一般每次通信之后就要加1以区别不同的通信数据报文
+- pid - 协议标识符：00 00表示ModbusTCP协议
+- length - 长度：表示接下来的数据长度，单位为字节
+- uid - 单元标识符：可以理解为设备地址
+
+##### 4. binary
+```
+[ Start ][Address ][ Function ][ Data ][ CRC ][ End ]
+   1b        1b         1b        Nb      2b    1b
+```
+-  报文以'{'开始，以 '}'结束
+- 二进制格式和RTU除了开始和结束，其他数据没有区别
+
+ 
+
+##### 配置组合示例：
+
+| Modbus形式          | 配置                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| Modbus RTU          | "channel": {<br/>	"ttyUSB0": {<br/>		"method": "serial",<br/>        "format": "rtu",<br/>        "port": "/dev/ttyUSB0",<br/>		"baudrate": 9600,<br/>		"time_wait": 0.3,<br/>		"period": 5,<br/>        "timtout": 3<br/>	}<br/>} |
+| Modbus TCP          | "channel": {<br/>    	"TCP502": {<br/>		"method": "tcp",<br/>        "format": "socket",<br/>		"address": "192.168.1.13",<br/>        "port": 502,<br/>		"time_wait": 0.3,<br/>		"period": 5,<br/>        "timtout": 3<br/>	}<br/>} |
+| Modbus RTU over TCP | "channel": {<br/>    	"TCP503": {<br/>		"method": "tcp",<br/>        "format": "rtu",<br/>		"address": "192.168.1.14",<br/>        "port": 503,<br/>		"time_wait": 0.3,<br/>		"period": 5,<br/>        "timtout": 3<br/>	}<br/>} |
+
+
+
 
 ### 子设备配置
 
