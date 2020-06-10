@@ -16,7 +16,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 - 支持Modbus功能码：
   - 02H 读离散输入寄存器(1x)
   - 04H 读输入寄存器(3x)
-  - 01H 读线圈寄存器(0x)
+  - 01H 读线圈寄存器(0x)：
   - 05H 写单个线圈寄存器(0x)
   - 03H 读保持寄存器(4x)
   - 06H 写单个保持寄存器(4x)
@@ -63,7 +63,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 	"modbus_config": {
 		"read": [{
-				"action": "coils",
+				"action": "01H",
 				"address": "0x0001",
 				"number": 1,
 				"prop_list": [{
@@ -72,7 +72,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 				}]
 			},
 			{
-				"action": "input_registers",
+				"action": "04H",
 				"address": "0x0003",
 				"number": 1,
 				"prop_list": [{
@@ -86,7 +86,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 				}]
 			},
 			{
-				"action": "discrete_inputs",
+				"action": "02H",
 				"address": "0x0001",
 				"number": 4,
 				"prop_list": [{
@@ -110,15 +110,15 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 		],
 		"write": {
 			"device.coil1": {
-				"action": "coil",
+				"action": "05H",
 				"address": "0x0001"
 			},
 			"device.coil2": {
-				"action": "register",
+				"action": "05H",
 				"address": "0x0002"
 			},
 			"device.coil1_coil2": {
-				"action": "coils",
+				"action": "0FH",
 				"address": "0x0001"
 			}
 		},
@@ -128,15 +128,15 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 }
 ```
 
-- channel: { channel1，channel2} 表示不同的通道的自定义名称，官方驱动支持Modbus RTU、Modbus TCP、Modbus RTU over TCP。通道的配置分为数据传输层（method）和数据帧格式层（format）。通过数据传输层和数据帧格式层的不同组合可以组合成“Modbus RTU”，“Modbus ASCII”，“Modbus TCP”，“Modbus RTU over TCP”等不同形式。
+- channel: { channel1，channel2, ... } 表示不同的通道的自定义名称及Modbus报文格式。通道的配置分为数据传输层（method）和数据报文格式层（format）。通过数据传输层和数据报文格式层的不同组合可以组合成“Modbus RTU”，“Modbus ASCII”，“Modbus TCP”，“Modbus RTU over TCP”等不同形式。
   
-  - formate：必填，数据帧格式的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节帧格式介绍](/uiot-edge/edge_devplopment/subdev_driver_SDK/offical_modbus_driver#帧格式介绍)
+  - format：必填，数据帧格式的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节帧格式介绍](/uiot-edge/edge_devplopment/subdev_driver_SDK/offical_modbus_driver#帧格式介绍)
     
   - method：必填，使用数据传输层类型，包括"serial"，"tcp"，"udp"三种
     
     **当method选择为"serial"是，需要配置以下内容：**
     
-    - port：必填，使用串口设备
+    - port：必填，使用串口设备，例如 "/dev/ttyS0"
     - baudrate：必填，串口波特率
     - bytesize：数据位长度，默认为8
     - parity：奇偶校验位，N - 不校验；O - 奇校验； E - 偶校验；M - 标记；S - 空间；默认为'N'
@@ -145,7 +145,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
     **当method选择为"tcp"或"udp"时，需要配置以下内容：**
     
     - address：必填，ip地址
-    - port：必填，使用端口
+    - port：必填，使用端口，例如 501
   
   - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
   - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
@@ -157,16 +157,14 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
   - read：选填，定义需要读取的寄存器值并转换成json上报数据包，该项为数组
 
-    - action：必填，读功能码，"coils" - 01H，"discrete_inputs" - 02H，"holding_registers" - 03H，"input_registers" -  04H
-
-    - address：必填，读寄存器地址
-
+    - action：必填，读功能码，可选为：**"01H","02H","03H","04H"**
+- address：必填，读寄存器地址
+  
     - number：选填，读寄存器个数。number=1，代表读一个16bit数据
-
-    - prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
-
-      - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
-
+- prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
+  
+  - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
+    
       - type：选填，json组包时的上报类型，支持int，uint，float，string，默认为 int；当读线圈或离散是，忽略该字段，默认为bool类型bool 数组
       
       - count：选填，默认值为1
@@ -176,7 +174,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
       - swap32：选填，true/false，修改大小端，当寄存器count=2时，是否交换两个寄存器的数据后再换算
   - write：选填，定义写入寄存器值和下行json数据包对应的关系，该项为数组
       - device.coil1,device.coil2,device.coil1_coil2为jsonpath，用户根据自己需要组包的json的格式自定义
-      - action：必填，写功能码，"coil" - 05H，"coils" - 0FH，"register" - 06H，"registers" - 10H
+      - action：必填，写功能码，可选为：**"05H","06H","0FH","10H"**
       - address：必填，写寄存器地址
   - topic：必填，定义上报消息使用的topic，topic格式为”/{}/{}/xxx“，该Topic可以为系统Topic、自定义Topic、网关本地Topic
   - mode：必填，采集数据模式，轮询模式 - “cycle”或者变化上报模式 - “onchange”，
@@ -220,7 +218,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
   }
   ```
 
-#### formate字段--报文格式介绍
+#### format字段--报文格式介绍
 
 ##### 1. rtu
 
