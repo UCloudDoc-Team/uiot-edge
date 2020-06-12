@@ -10,8 +10,9 @@ UIoT Edge提供子设备接入、函数计算、消息路由、本地缓存断�
   - [什么是物联网边缘网关](/uiot-edge/introduce/iot_edge_introduce.md)
   - [功能介绍](/uiot-edge/introduce/functions.md)
   - [名词解释](/uiot-edge/introduce/glossary.md)
-  - [产品计费模式](/uiot-edge/introduce/price.md)
-
+  - [使用限制](/uiot-edge/introduce/limits.md)
+- [产品计费模式](/uiot-edge/introduce/price.md)
+  
 - [使用指南](/uiot-edge/user_guide/README.md)
   - [使用流程概述](/uiot-edge/user_guide/overview.md)
   - 创建网关及子设备
