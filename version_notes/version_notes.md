@@ -7,3 +7,10 @@
 #### 2020-05-13
 
 1. 增加子设备驱动C SDK。
+
+
+
+#### 2020-06-10
+
+1. 增加Modbus ASCII、Modbus RTU over TCP、 Modbus binary模式
+2. iot edge软件包进一步裁剪，可以适配硬件最低要求RAM 256M，flash 256M

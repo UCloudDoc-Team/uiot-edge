@@ -24,7 +24,7 @@ linux推荐使用以下发行版本，自裁剪系统或其他发行版本将在
 
 #### 安装依赖
 
-UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装，安装要求具备联网能力。
+UIoT Edge软件包的安装仅依赖wget工具，其他的依赖会自动安装，安装要求具备联网能力。
 
 ## 操作步骤
 
@@ -56,8 +56,8 @@ UIoT Edge软件包的安装仅依赖curl工具，其他的依赖会自动安装�
    - 登录网关设备，进入安装UIoT Edge的目录，粘贴并运行上述安装命令；
 
      ```bash
-     # 脚本安装依赖`curl`工具，需要提前安装。
-     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp 6ug7n9qnxd0safyx t77wpuvistiutxw5 && ./ucloud_iot_edge_process_proc.sh --start
+     # 脚本安装依赖`wget`工具，需要提前安装。
+     wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp 6ug7n9qnxd0safyx t77wpuvistiutxw5 && ./ucloud_iot_edge_process_proc.sh --start
      ```
 
      ![安装软件命令](../../images/安装软件命令.png)

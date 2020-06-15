@@ -158,7 +158,7 @@
    - 选择需要安装的目录，运行安装脚本进行安装：
 
      ```bash
-     curl -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process_proc.sh --start
+     wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process_proc.sh --start
      ```
      
 
@@ -191,7 +191,8 @@
      		"ttyUSB0": {
      			"port": "/dev/ttyUSB0",
      			"baudrate": 9600,
-     			"method": "rtu",
+     			"method": "serial",
+                 "format": "rtu",
      			"timeout": 1,
      			"period": 5,
      			"time_wait": 0.2
@@ -199,7 +200,7 @@
      	},
      	"dht20": {
      		"read": [{
-     			"action": "input_registers",
+     			"action": "04H",
      			"address": "0x0001",
      			"number": 2, //读取两个寄存器
      			"prop_list": [{
@@ -220,15 +221,15 @@
      		}],
      		"write": {
      			"data.temperature_fix": {
-     				"action": "register",
+     				"action": "06H",
      				"address": "0x0103"
      			},
      			"data.humidity_fix": {
-     				"action": "register",
+     				"action": "06H",
      				"address": "0x0104"
      			},
      			"data.temp_humi_fix": {
-     				"action": "registers",
+     				"action": "10H",
      				"address": "0x0103"
      			}
      		},
