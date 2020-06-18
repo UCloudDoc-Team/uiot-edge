@@ -130,7 +130,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 - channel: { channel1，channel2, ... } 表示不同的通道的自定义名称及Modbus报文格式。通道的配置分为数据传输层（method）和数据报文表示层（format）。通过数据传输层和数据报文表示层的不同组合可以组合成“Modbus RTU”，“Modbus ASCII”，“Modbus TCP”，“Modbus RTU over TCP”等不同形式。
   
-  - format：必填，数据报文表示层的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节报文格式介绍](/uiot-edge/edge_deveplopment/subdev_driver_SDK/offical_modbus_driver#format字段--报文格式介绍)
+  - format：必填，数据报文表示层的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节报文格式介绍](/uiot-edge/edge_deveplopment/subdev_driver_SDK/offical_modbus_driver#format字段-报文格式介绍)
     
   - method：必填，使用数据传输层类型，包括"serial"，"tcp"，"udp"三种
     
