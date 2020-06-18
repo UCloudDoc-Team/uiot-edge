@@ -29,5 +29,9 @@
 7. 如何实现网关设备替换？
 
    目前可以通过重新配置，后面会提供一键替换功能。
+   
+8. 安装Edge Runtime时出现“unable to resolve host address...”，该怎么处理？
+
+   很可能是系统设置的dns server解析比较慢或出问题了，可以多尝试几次，或者将dns server设置为114.114.114.114（在/etc/resolv.conf里），这个是电信dns server，一般能正常解析。
 
 
