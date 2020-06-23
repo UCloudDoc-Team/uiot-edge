@@ -31,7 +31,7 @@
   - 远程运维管理
     - [远程访问](/uiot-edge/user_guide/remote_maintaince/remote_access.md)
 
-- [边缘端开发](/uiot-edge/edge_devplopment/README.md)
+- [边缘端开发](/uiot-edge/edge_development/README.md)
   - 子设备驱动SDK  
     - [概述](/uiot-edge/edge_development/subdev_driver_SDK/overview.md) 
     - [Python3 SDK使用](/uiot-edge/edge_development/subdev_driver_SDK/python3_SDK_intro.md)
