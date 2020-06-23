@@ -36,7 +36,7 @@
 
 ### 网关代理子设备进行动态注册
 
-网关可代替子设备进行**动态注册**，获取子设备的 `DeviceSecret`，该功子设备需要开启[动态注册](https://docs.ucloud.cn/uiot-core/device_develop_guide/authenticate_devices/unique-certificate-per-product_authentication)功能。物联网平台将依据预注册开关的开启状态决定是否创建新设备。此消息类型只针对动态注册，静态注册直接上线。
+网关可代替子设备进行**动态注册**，获取子设备的 `DeviceSecret`，该功能子设备需要开启[动态注册](https://docs.ucloud.cn/uiot-core/device_develop_guide/authenticate_devices/unique-certificate-per-product_authentication)功能。物联网平台将依据预注册开关的开启状态决定是否创建新设备。此消息类型只针对动态注册，静态注册直接上线。
 
 * 动态注册获取 `DeviceSecret `成功后，设备状态不变，依旧为未激活状态
 
