@@ -22,7 +22,7 @@ UIoT Edge能够提供云边协同的能力，在云平台直接添加子设备�
 ## UIoT Edge本地控制台使用流程
 
 1. 参考[安装软件](/uiot-edge/user_guide/install/runtime_install)，在目标硬件上安装UIoT Edge运行时；
-2. 访问本地控制台，http://local-ip:8080/admin；
+2. 访问本地控制台，https://local-ip:8080/admin；
 3. 本地管理边缘网关：[在线设备](/uiot-edge/local_console/console_opration_detail#管理在线设备)、[驱动管理](/uiot-edge/local_console/console_opration_detail#驱动管理)、[函数计算](/uiot-edge/local_console/console_opration_detail#函数计算)、[消息路由](/uiot-edge/local_console/console_opration_detail#消息路由)；
 
 ![本地控制台页面](../images/本地控制台页面.png)
