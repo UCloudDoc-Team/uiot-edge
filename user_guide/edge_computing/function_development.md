@@ -74,6 +74,8 @@ def handler(event, context):
 | topic   | String  | 消息topic                                                    |
 | source  | String  | 消息来源，和消息路由一致。<br>分为"本地路由", "IoT Core云平台" 和 "函数计算" 三种 |
 | payload | b:bytes | 消息体                                                       |
+
+
 【示例】
 
 ```json
