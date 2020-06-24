@@ -67,6 +67,7 @@ def handler(event, context):
 1. 函数接口名必须为`handler`；
 2. 函数参数：
    - event：触发函数的事件，类型为 dict
+
 |字段|类型|描述|
 |-|-|-|
 |type|String|事件类型，这里为 "mqtt"|
