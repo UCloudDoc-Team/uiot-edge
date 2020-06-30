@@ -30,8 +30,7 @@
     - [消息路由配置详解](/uiot-edge/user_guide/message_route/route_config_detail.md) 
   - 远程运维管理
     - [远程访问](/uiot-edge/user_guide/remote_maintaince/remote_access.md)
--  [网关替换](/uiot-edge/user_guide/getway_replace.md)
-  
+
 - [边缘端开发](/uiot-edge/edge_development/README.md)
   - 子设备驱动SDK  
     - [概述](/uiot-edge/edge_development/subdev_driver_SDK/overview.md) 
