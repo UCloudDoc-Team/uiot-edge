@@ -16,14 +16,13 @@
 
 ## 安装及部署
 
-| API名称                       | 描述                     |
-| ----------------------------- | ------------------------ |
-| [CreateUIoTCoreEdgeDeployment](/uiot-edge/api_list/install_deploy#CreateUIoTCoreEdgeDeployment)  | 创建边缘部署任务         |
-| [CreateUIoTCoreReinstall](/uiot-edge/api_list/install_deploy#CreateUIoTCoreReinstall)       | 重装软件                 |
-| [GetUIoTCoreReinstallInfo](/uiot-edge/api_list/install_deploy#GetUIoTCoreReinstallInfo)      | 获取设备网关安装信息     |
-| [GetUIoTCoreEdgeDeploymentList](/uiot-edge/api_list/install_deploy#GetUIoTCoreEdgeDeploymentList) | 获取边缘部署任务列表     |
-| [GetUIoTCoreEdgeDeploymentInfo](/uiot-edge/api_list/install_deploy#GetUIoTCoreEdgeDeploymentInfo) | 获取边缘部署任务信息     |
-| [GetUIoTCoreLatestEdgeDeploy](/uiot-edge/api_list/install_deploy#GetUIoTCoreLatestEdgeDeploy)   | 获取最新边缘网关部署信息 |
+| API名称                                                      | 描述                 |
+| ------------------------------------------------------------ | -------------------- |
+| [CreateUIoTCoreReinstall](/uiot-edge/api_list/install_deploy#CreateUIoTCoreReinstall) | 重装软件             |
+| [GetUIoTCoreReinstallInfo](/uiot-edge/api_list/install_deploy#GetUIoTCoreReinstallInfo) | 获取设备网关安装信息 |
+| [CreateUIoTCoreEdgeDeployment](/uiot-edge/api_list/install_deploy#CreateUIoTCoreEdgeDeployment) | 创建边缘部署任务     |
+| [GetUIoTCoreEdgeDeploymentInfo](/uiot-edge/api_list/install_deploy#GetUIoTCoreEdgeDeploymentInfo) | 获取边缘部署任务信息 |
+| [GetUIoTCoreEdgeDeploymentList](/uiot-edge/api_list/install_deploy#GetUIoTCoreEdgeDeploymentList) | 获取边缘部署任务列表 |
 
 
 
