@@ -158,12 +158,12 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
   - read：选填，定义需要读取的寄存器值并转换成json上报数据包，该项为数组
 
     - action：必填，读功能码，可选为：**"01H","02H","03H","04H"**
-- address：必填，读寄存器地址
+    - address：必填，读寄存器地址
   
     - number：选填，读寄存器个数。number=1，代表读一个16bit数据
-- prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
+    - prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
   
-  - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
+      - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
     
       - type：选填，json组包时的上报类型，支持int，uint，float，string，默认为 int；当读线圈或离散是，忽略该字段，默认为bool类型bool 数组
       
