@@ -122,6 +122,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 				"address": "0x0001"
 			}
 		},
+        "timestamp": true,
 		"topic": "/{}/{}/upload",
 		"mode": "cycle"
 	}
@@ -176,6 +177,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
       - device.coil1,device.coil2,device.coil1_coil2为jsonpath，用户根据自己需要组包的json的格式自定义
       - action：必填，写功能码，可选为：**"05H","06H","0FH","10H"**
       - address：必填，写寄存器地址
+  - timestamp: 选填，true/false，上报数据是否带时间戳，时间戳为Unix时间戳，默认值为true
   - topic：必填，定义上报消息使用的topic，topic格式为”/{}/{}/xxx“，该Topic可以为系统Topic、自定义Topic、网关本地Topic
   - mode：必填，采集数据模式，轮询模式 - “cycle”或者变化上报模式 - “onchange”，
 
@@ -184,6 +186,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 - 上行
 
   ```json
+  // 上报数据根据prop_list中name的json path进行组包上报数据
   {
   	"data": {
   		"coil1": true,
@@ -194,7 +197,8 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
   		"input2": true,
   		"input3": true,
   		"input4": true
-  	}
+  	},
+      "timestamp": 1597026387
   }
   ```
 
