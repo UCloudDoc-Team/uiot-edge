@@ -233,6 +233,7 @@
      				"address": "0x0103"
      			}
      		},
+             "timestamp": true,
      		"topic": "/{}/{}/upload",
      		"mode": "cycle"
      	}
@@ -259,41 +260,61 @@
 ![最佳实践驱动配置](../images/最佳实践驱动配置.png)
 ![最佳实践子设备配置](../images/最佳实践子设备配置.png)
 
-5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，为payload添加时间戳
+5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，将payload中的temperature＞100摄氏度数据改成华氏度上报
    
 	
    ```python
-   #!/usr/bin/env python
-   # -*- coding:utf-8 -*-
+   
    """
-   function to add timestamp to json body, then send the message
+   设备上云数据筛选示例
+   1. 子设备往函数计算发送一个 json 消息，格式如下
+   {
+       "temperature": 26.5,
+       "humidity": 68
+   }
+   表示 id 为 123456，温度为 120 摄氏度
+   2. 函数计算根据条件筛选数据，实例中的筛选条件为
+   celsius > 100
+   3. 将摄氏度转换为华氏度
+   celsius -> fahrenheit
+   {
+       "temperature": 79.7,
+       "humidity": 68
+   }
+   4. 注意，消息流转需要配置相应的消息路由
    """
+   
    
    import function_sdk
-   import time
    import json
+   import logging
    
-   # 如果要使用publish，需要先调用 EdgeClient 构造函数，初始化一个client
+   
+   # 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
    cli = function_sdk.EdgeClient()
-   
-   
+
    def handler(event, context):
-       print(event)
-       
-       topic = event['topic']
-       msg = json.loads(event['payload'].decode('utf-8'))
-       msg['timestamp'] = int(time.time())
-       
-       payload = json.dumps(msg).encode('utf-8')
-       
-       # 向指定 topic 发送消息
-       cli.publish(topic, payload)
+    try:
+           # 获取消息 topic
+           topic = event["topic"]
+           # payload 为 bytes 类型，需解码为字符串
+           msg = json.loads(event["payload"].decode('utf-8'))
+   
+           if msg["temperature"] > 100:
+               # 转换为华氏温标
+               msg["temperature"] = msg["temperature"] * 1.8 + 32
+               payload = json.dumps(msg).encode('utf-8')
+               # 向指定 topic 发送消息
+               cli.publish(topic, payload)
+   
+       except Exception:
+           logging.exception(context)
    ```
    
    ![最佳实践添加时间戳](../images/最佳实践添加时间戳.png)
-
+   
    ![最佳实践分配函数](../images/最佳实践分配函数.png)
-
+   
 6. 参考[设置消息路由](/uiot-edge/user_guide/message_route/overview)，添加消息路由转发数据到云端
 
    - 路由一：子设备 -> 函数计算

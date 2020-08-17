@@ -1,5 +1,4 @@
 <div class="sidebar_title icon__iotedge">物联网边缘网关 UIoT Edge</div>
-
 - [产品简介](/uiot-edge/introduce/README.md)  
   - [什么是物联网边缘网关](/uiot-edge/introduce/iot_edge_introduce.md)
   - [功能介绍](/uiot-edge/introduce/functions.md)
@@ -36,7 +35,9 @@
     - [概述](/uiot-edge/edge_development/subdev_driver_SDK/overview.md) 
     - [Python3 SDK使用](/uiot-edge/edge_development/subdev_driver_SDK/python3_SDK_intro.md)
     - [C SDK使用](/uiot-edge/edge_development/subdev_driver_SDK/C_SDK_intro.md)
+  - 官方驱动
     - [官方Modbus驱动(Python)](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver.md)
+    - [官方DLT645驱动(C)](/uiot-edge/edge_development/subdev_driver_SDK/offical_dlt645_driver.md)
   
 - [云端API接口](/uiot-edge/api_list/README.md)  
   - [概述](/uiot-edge/api_list/overview.md)
