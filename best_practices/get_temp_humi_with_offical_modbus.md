@@ -267,19 +267,21 @@
    
    """
    设备上云数据筛选示例
-   1. 子设备往函数计算发送一个 json 消息，格式如下
+   1. 根据驱动配置，函数计算收到子设备的json 消息，格式如下
    {
-       "temperature": 26.5,
-       "humidity": 68
+       "data":{
+       	temperature": 26.5,
+       	"humidity": 68
+       }
    }
-   表示 id 为 123456，温度为 120 摄氏度
    2. 函数计算根据条件筛选数据，实例中的筛选条件为
-   celsius > 100
+   temperature > 25
    3. 将摄氏度转换为华氏度
-   celsius -> fahrenheit
    {
-       "temperature": 79.7,
-       "humidity": 68
+       "data":{
+       	"temperature": 79.7,
+       	"humidity": 68
+       }
    }
    4. 注意，消息流转需要配置相应的消息路由
    """
@@ -290,19 +292,19 @@
    import logging
    
    
-   # 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
+# 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
    cli = function_sdk.EdgeClient()
-
+   
    def handler(event, context):
-    try:
+       try:
            # 获取消息 topic
            topic = event["topic"]
            # payload 为 bytes 类型，需解码为字符串
            msg = json.loads(event["payload"].decode('utf-8'))
    
-           if msg["temperature"] > 100:
+           if msg["data"]["temperature"] > 25:
                # 转换为华氏温标
-               msg["temperature"] = msg["temperature"] * 1.8 + 32
+               msg["data"]["temperature"] = msg["data"]["temperature"] * 1.8 + 32
                payload = json.dumps(msg).encode('utf-8')
                # 向指定 topic 发送消息
                cli.publish(topic, payload)
@@ -311,7 +313,7 @@
            logging.exception(context)
    ```
    
-   ![最佳实践添加时间戳](../images/最佳实践添加时间戳.png)
+   ![最佳实践添加时间戳](../images/最佳实践添加函数.png)
    
    ![最佳实践分配函数](../images/最佳实践分配函数.png)
    
