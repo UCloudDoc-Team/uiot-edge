@@ -14,7 +14,7 @@
 ## 驱动SDK使用流程
 
 1. 下载C  SDK
-   
+  
 ```bash
 git clone https://github.com/ucloud/uiotedge-driver-sdk-c.git
 ```
@@ -208,6 +208,38 @@ char * edge_get_device_info(void)
   	}]
   }
   ```
+
+### edge_get_product_sn
+
+```c
+char * edge_get_product_sn(void)
+```
+
+获取网关的产品序列号。
+
+- 输入参数
+
+  无
+
+- 返回值
+
+  返回产品序列号字符串
+
+### edge_get_device_sn
+
+```c
+char * edge_get_device_sn(void)
+```
+
+获取网关的设备序列号。
+
+- 输入参数
+
+  无
+
+- 返回值
+
+  返回设备序列号字符串
 
 ### edge_subdev_construct
 

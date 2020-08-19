@@ -13,13 +13,13 @@
 ## 驱动SDK使用流程
 
 1. 下载Python3 SDK
-   
+  
 ```bash
  pip3 install uiotedge_driver_link_sdk
 ```
 
 2. 创建`index.py`文件
-   
+  
    下面的代码给出了一个子设备驱动需要完成的最基本功能，包括4部分：
    
    - 解析驱动及子设备配置信息，获取配置及子设备列表
@@ -127,7 +127,7 @@ if __name__ == "__main__":
    
 
 3. 打包驱动
-   
+  
 ```bash
 #打包驱动SDK，"-t ."，表示下载python包到当前目录，用于打包上传到驱动管理
 pip3 install -t . uiotedge_driver_link_sdk  
@@ -179,6 +179,25 @@ zip -r driver.zip .
 | Parameter name | Type       | Description  |
 | -------------- | ---------- | ------------ |
 | DriverInfo     | Dictionary | 驱动配置信息 |
+
+
+
+- **Config. getGatewayProductSN()方法**
+- 返回值
+
+| Parameter name | Type   | Description         |
+| -------------- | ------ | ------------------- |
+| ProductSN      | String | 网关的ProductSN信息 |
+
+
+
+- **Config. getGatewayDeviceSN() 方法**
+- 返回值
+
+| Parameter name | Type   | Description        |
+| -------------- | ------ | ------------------ |
+| DeviceSN       | String | 网关的DeviceSN信息 |
+
 
 
 
