@@ -401,7 +401,7 @@ zip -r driver.zip .
      
     ```json
     {
-      "operaction":"add/delete",
+      "operation":"add/delete",
       "RequestID": "123",
       "Params": [
         {
@@ -443,7 +443,7 @@ zip -r driver.zip .
     
     ```json
     {
-    	"operaction": "enable/disable",
+    	"operation": "enable/disable",
     	"RequestID": "123",
     	"Params": [{
     			"ProductSN": "product1234",
