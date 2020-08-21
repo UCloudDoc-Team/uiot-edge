@@ -88,6 +88,17 @@ UIoT Edge软件包的安装仅依赖wget工具，其他的依赖会自动安装�
 
      ![安装软件停用离线](../../images/安装软件停用离线.png)
 
+## 其他操作
+
+### 停用UIoT Edge及远程SSH
+
+1. 登录目标边缘网关，在安装目录下，找到脚本`ucloud_iot_edge_process.sh`，执行以下命令：
+
+   ```bash
+   ucloud_iot_edge_process.sh --stop all
+   ```
+
+
 ### 重装UIoT Edge
 
 重新安装，会覆盖edge端的所有程序及配置，重新部署后会重新部署当前子设备驱动、函数计算、消息路由等配置。
