@@ -12,7 +12,7 @@ UIoT Edge 提供边缘网关的运行时，需要用户自行购买硬件网关�
 | 硬盘     | ≥128MB                                            | ≥2GB                            |
 | GPU/NPU  | 可选                                              | 可选                            |
 | OS       | linux <br>kernel version ≥4.1                     | linux<br>docker version ≥18.09  |
-| 端口占用 | 8080(本地Web Portal)                              | 8080(本地Web Portal)            |
+| 端口占用 | 19980(本地Web Portal)                             | 19980(本地Web Portal)           |
 
 
 
