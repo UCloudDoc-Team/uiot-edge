@@ -16,7 +16,7 @@
     - [关联子设备](/uiot-edge/user_guide/edge_subdevice/subdevice_bind.md)
   - 安装网关软件
     - [安装软件](/uiot-edge/user_guide/install/runtime_install.md)
-    - [开机启动示例](/uiot-edge/user_guide/install/boot_up.md)
+    - [开机自启动设置](/uiot-edge/user_guide/install/boot_up.md)
   - 子设备驱动与接入
     - [概览](/uiot-edge/user_guide/subdevice_driver_access/overview.md)
     - [驱动开发及添加](/uiot-edge/user_guide/subdevice_driver_access/driver_development.md)

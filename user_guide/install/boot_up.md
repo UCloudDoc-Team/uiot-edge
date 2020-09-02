@@ -2,7 +2,7 @@
 
 
 
-## 使用`systemd`管理` IoT Edge`
+ 使用`systemd`管理` IoT Edge`
 
 您可以使用`systemd`来管理` IoT Edge`服务的启动（start）、停止（stop）和查看状态（status）。
 
