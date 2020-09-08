@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
 2）子设备属性集合表，即子设备协议指令获取的属性值如何转换成上云的协议字段。以Modbus为例，比如属性集为properties1，定义Modbus读取属性指令为`功能码0x04 寄存器地址0x01 读取数据长度0x01`，则对应上云的字段为`temperature`，则驱动会根据配置信息将上述指令读到的数据转为`{"temperature": 20}`上报到云端。
 
-详细例子可以参考[官方Modbus驱动-驱动配置](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver#驱动配置)。
+详细例子可以参考[官方Modbus驱动-驱动配置](/uiot-edge/edge_development/offical_driver/offical_modbus_driver#驱动配置)。
 
 #### 子设备配置
 
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
 4）轮询方式，轮询周期等。比如 period = 5；
 
-详细例子可以参考[官方Modbus驱动-子设备配置](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver#子设备配置)。
+详细例子可以参考[官方Modbus驱动-子设备配置](/uiot-edge/edge_development/offical_driver/offical_modbus_driver#子设备配置)。
 
 ![驱动开发驱动配置](../../images/驱动开发驱动配置.png)
 

@@ -5,7 +5,6 @@
   - [创建网关](/uiot-edge/user_guide/edge_subdevice/create_edge.md)
   - [创建子设备](/uiot-edge/user_guide/edge_subdevice/create_subdevice.md)
   - [关联子设备](/uiot-edge/user_guide/edge_subdevice/subdevice_bind.md)
-  - [网关管理](/uiot-edge/user_guide/edge_subdevice/edge_management.md)
 - 安装网关软件
   - [安装软件](/uiot-edge/user_guide/install/runtime_install.md)
 - 子设备驱动与接入
@@ -23,3 +22,4 @@
   - [消息路由配置详解](/uiot-edge/user_guide/message_route/route_config_detail.md)    
 - 远程运维管理
   - [远程访问](/uiot-edge/user_guide/remote_maintaince/remote_access.md)
+

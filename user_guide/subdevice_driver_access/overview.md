@@ -4,7 +4,7 @@
 
 子设备的接入通常包括数据采集传感器、工业控制设备、可编程逻辑控制器(PLC)等设备，这些设备通过不同的协议与边缘网关通信，所以需要解决多种协议接入的问题。
 
-UIoT Edge提供[子设备驱动SDK](/uiot-edge/edge_development/subdev_driver_SDK/overview)，用户可以基于该SDK开发不同协议的设备驱动，目前官方提供[Modbus 驱动](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver)。
+UIoT Edge提供[子设备驱动SDK](/uiot-edge/edge_development/subdev_driver_SDK/overview)，用户可以基于该SDK开发不同协议的设备驱动，目前官方提供[Modbus 驱动](/uiot-edge/edge_development/offical_driver/offical_modbus_driver)。
 
 
 
