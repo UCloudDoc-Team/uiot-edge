@@ -149,7 +149,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
     - address：必填，ip地址
     - port：必填，使用端口，例如 501
   
-  - timtout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
+  - timeout：modbus同一帧，设备响应的超时时间，单位为秒，支持小数，默认为3
   - time_wait：modbus访问帧与帧之间的间隔时间，单位为秒，支持小数，默认为0.1
   - period：属性上报时间周期，单位为秒，支持小数，默认为30
     
