@@ -1,8 +1,10 @@
-# 官方Modbus驱动（Python）
+# 官方Modbus驱动（C语言版）
 
 [Modbus](http://www.modbus.org/tech.php)最早由Modicon公司（现在的施耐德电气 ）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业、能源、楼宇、农业领域通信协议的业界标准，目前是工业电子设备之间常用的连接方式。
 
 Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
+
+Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
 
 
 
@@ -10,6 +12,7 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 - 支持配置多通道、多传感器数据采集
 - 支持通过自定义Topic上报数据，数据格式支持自定义json
+- 支持下行读写命令
 - 支持周期性上报（cycle）和数据变化上报（onchange）
 - 支持设置上报周期，默认是30秒
 - 支持连续读写多个寄存器
@@ -43,97 +46,79 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 ```json
 {
 	"channel": {
-		"ttyUSB0": {
-			"method": "serial",
-            "format": "rtu",
-            "port": "/dev/ttyUSB0",
+		"channel1": {
+			"port": "/dev/ttymxc1",
 			"baudrate": 9600,
-			"time_wait": 0.3,
-			"period": 5,
-            "timtout": 3
+			"method": "serial",
+			"format": "rtu",
+			"period": 60,
+			"timeout": 2,
+			"time_wait": 2
 		},
-		"TCP9077": {
-			"method": "tcp",
-            "format": "socket",
-			"address": "localhost",
-            "port": 9077,
-			"time_wait": 0.3,
-			"period": 5,
-            "timtout": 3
+		"channel2": {
+			"port": "/dev/ttymxc2",
+			"baudrate": 2400,
+			"method": "serial",
+			"format": "rtu",
+			"period": 60,
+			"timeout": 2,
+			"parity": "E",
+			"time_wait": 2
 		}
 	},
-
-	"modbus_config": {
-		"read": [{
+	"kkkg_config": {
+		"read": [
+			{
 				"action": "01H",
+				"cmd": "readkkkg_status",                 // 主动获取当前值
 				"address": "0x0001",
 				"number": 1,
-				"prop_list": [{
-					"name": "data.coil1",
-					"count": 1
-				}]
+				"prop_list": [
+					{
+						"name": "status",
+						"type": "int",
+						"count": 1
+					}
+				]
 			},
 			{
-				"action": "04H",
-				"address": "0x0003",
+				"action": "01H",
+				"cmd": "readkkkg_volatage",                 // 主动获取当前值
+				"address": "0x0002",
 				"number": 1,
-				"prop_list": [{
-					"name": "data.input_register",
-					"count": 1,
-					"type": "int",
-					"scale": 0.1,
-					"offset": 0.0,
-					"swap16": true,
-					"swap32": false
-				}]
-			},
-			{
-				"action": "02H",
-				"address": "0x0001",
-				"number": 4,
-				"prop_list": [{
-						"name": "device.input1",
-						"count": 1
-					},
+				"prop_list": [
 					{
-						"name": "device.input2",
-						"count": 1
-					},
-					{
-						"name": "device.input3",
-						"count": 1
-					},
-					{
-						"name": "device.input4",
+						"name": "volatage",
+						"type": "int",
 						"count": 1
 					}
 				]
 			}
 		],
 		"write": {
-			"device.coil1": {
+			"status": {
 				"action": "05H",
-				"address": "0x0001"
-			},
-			"device.coil2": {
-				"action": "05H",
-				"address": "0x0002"
-			},
-			"device.coil1_coil2": {
-				"action": "0FH",
 				"address": "0x0001"
 			}
 		},
-        "timestamp": true,
-		"topic": "/{}/{}/upload",
-		"mode": "cycle"
+		"timestamp": true,                             //可选项包括：true "s" "ms" "ns", true默认为"s"
+		"read_reply_topic": "/{}/{}/upload",
+		"write_reply_topic": "/{}/{}/upload",
+		"topic": "/{}/{}/upload"
 	}
+}
+
+上述主动获取下发cmd的格式：
+{
+	"action": "read",
+	"operation": ["readkkkg_status","readkkkg_volatage"],
+	"requestID": "123456"    // requestID可选
 }
 ```
 
 - channel: { channel1，channel2, ... } 表示不同的通道的自定义名称及Modbus报文格式。通道的配置分为数据传输层（method）和数据报文表示层（format）。通过数据传输层和数据报文表示层的不同组合可以组合成“Modbus RTU”，“Modbus ASCII”，“Modbus TCP”，“Modbus RTU over TCP”等不同形式。
   
-  - format：必填，数据报文表示层的类型，包括"rtu"，"ascii"，"socket"，"binary"四种，各个格式的具体介绍，参见[本节报文格式介绍](/uiot-edge/edge_development/offical_driver/offical_modbus_driver?id=format字段-报文格式介绍)
+  - format：必填，数据报文表示层的类型，包括"rtu"，"ascii"，"socket"三种，各个格式的具体介绍，参见[本节报文格式介绍](/uiot-edge/edge_development/offical_driver/offical_modbus_driver?id=format字段-报文格式介绍)
     
   - method：必填，使用数据传输层类型，包括"serial"，"tcp"，"udp"三种
     
@@ -160,12 +145,12 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
   - read：选填，定义需要读取的寄存器值并转换成json上报数据包，该项为数组
 
+    - commd：选填，读命令标识
     - action：必填，读功能码，可选为：**"01H","02H","03H","04H"**
     - address：必填，读寄存器地址
-  
     - number：选填，读寄存器个数。number=1，代表读一个16bit数据
     - prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
-  
+
       - name：必填，自定义jsonpath或者`-`，代表数据上报到云端如何组成json包；当该字段为`-`时，代表跳过该count长度的寄存器或bit位
     
       - type：选填，json组包时的上报类型，支持int，uint，float，string，默认为 int；当读线圈或离散是，忽略该字段，默认为bool类型bool 数组
@@ -179,9 +164,28 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
       - device.coil1,device.coil2,device.coil1_coil2为jsonpath，用户根据自己需要组包的json的格式自定义
       - action：必填，写功能码，可选为：**"05H","06H","0FH","10H"**
       - address：必填，写寄存器地址
-  - timestamp: 选填，true/false，上报数据是否带时间戳，时间戳为Unix时间戳，默认值为false
+
+    - "write_reply_topic"：选填，定义下行写入寄存器或线圈的响应topic
+    - “read_reply_topic”：选填，定义下行读寄存器或线圈的响应topic
+
+  - timestamp: 选填（默认值为false）
+      - 布尔型：true/false，上报数据是否带时间戳，时间戳为Unix时间戳（秒）
+      - 字符串：s/ms/ns，s为秒、ms为毫秒、ns为纳秒
   - topic：必填，定义上报消息使用的topic，topic格式为”/{}/{}/xxx“，该Topic可以为系统Topic、自定义Topic、网关本地Topic
   - mode：必填，采集数据模式，轮询模式 - “cycle”或者变化上报模式 - “onchange”，
+
+####下行消息数据格式
+  ```json
+  // 主动获取下发cmd的格式：
+{
+	"action": "read",
+	"operation": ["readkkkg_status","readkkkg_volatage"],
+	"requestID": "123456"    // requestID可选
+}
+  ```
+- action：选填，“read”时为下行读操作；默认为写操作
+- operation：当下行为读操作时，内容为modbus_config 中read 列表中commd字段
+- requestID：选填，当不为空时，响应带上requestID
 
 #### 驱动转换后的数据格式
 
