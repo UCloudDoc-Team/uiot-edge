@@ -6,6 +6,13 @@ Modbus官方驱动目前支持Modbus RTU和Modbus TCP两种模式。
 
 Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
 
+C语言版本具有python版的绝大部分功能（除Modbus Binary Formate），且相比较python有以下优点：
+
+1. 占用flash、RAM更小，运行速度更快，实时性更好；
+2. 支持主动读属性；
+3. 支持写操作返回是否成功reply；
+4. 支持时间戳设置纳秒、毫秒、秒；
+
 
 
 **Modbus 官方驱动支持以下功能：**
@@ -45,74 +52,103 @@ Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
 
 ```json
 {
-	"channel": {
-		"channel1": {
-			"port": "/dev/ttymxc1",
-			"baudrate": 9600,
-			"method": "serial",
-			"format": "rtu",
-			"period": 60,
-			"timeout": 2,
-			"time_wait": 2
-		},
-		"channel2": {
-			"port": "/dev/ttymxc2",
-			"baudrate": 2400,
-			"method": "serial",
-			"format": "rtu",
-			"period": 60,
-			"timeout": 2,
-			"parity": "E",
-			"time_wait": 2
-		}
-	},
-	"kkkg_config": {
-		"read": [
-			{
-				"action": "01H",
-				"cmd": "readkkkg_status",                 // 主动获取当前值
-				"address": "0x0001",
-				"number": 1,
-				"prop_list": [
-					{
-						"name": "status",
-						"type": "int",
-						"count": 1
-					}
-				]
-			},
-			{
-				"action": "01H",
-				"cmd": "readkkkg_volatage",                 // 主动获取当前值
-				"address": "0x0002",
-				"number": 1,
-				"prop_list": [
-					{
-						"name": "volatage",
-						"type": "int",
-						"count": 1
-					}
-				]
-			}
-		],
-		"write": {
-			"status": {
-				"action": "05H",
-				"address": "0x0001"
-			}
-		},
-		"timestamp": true,                             //可选项包括：true "s" "ms" "ns", true默认为"s"
-		"read_reply_topic": "/{}/{}/upload",
-		"write_reply_topic": "/{}/{}/upload",
-		"topic": "/{}/{}/upload"
-	}
+    "channel": {
+        "ttyUSB0": {
+            "method": "serial",
+            "format": "rtu",
+            "port": "/dev/ttyUSB0",
+            "baudrate": 9600,
+            "time_wait": 0.3,
+            "period": 5,
+            "timtout": 3
+        },
+        "TCP9077": {
+            "method": "tcp",
+            "format": "socket",
+            "address": "localhost",
+            "port": 9077,
+            "time_wait": 0.3,
+            "period": 5,
+            "timtout": 3
+        }
+    },
+
+    "modbus_config": {
+        "read": [{
+                "action": "01H",
+				"cmd": "read_status",                 // 主动获取当前值
+                "address": "0x0001",
+                "number": 1,
+                "prop_list": [{
+                    "name": "data.status",
+                    "count": 1
+                }]
+            },
+            {
+                "action": "04H",
+				"cmd": "read_temperature",            // 主动获取当前值
+                "address": "0x0003",
+                "number": 1,
+                "prop_list": [{
+                    "name": "data.temperature",
+                    "count": 1,
+                    "type": "int",
+                    "scale": 0.1,
+                    "offset": 0.0,
+                    "swap16": true,
+                    "swap32": false
+                }]
+            },
+            {
+                "action": "02H",
+                "address": "0x0001",
+                "number": 4,
+                "prop_list": [{
+                        "name": "device.input1_status",
+                        "count": 1
+                    },
+                    {
+                        "name": "device.input2_status",
+                        "count": 1
+                    },
+                    {
+                        "name": "device.input3_status",
+                        "count": 1
+                    },
+                    {
+                        "name": "device.input4_status",
+                        "count": 1
+                    }
+                ]
+            }
+        ],
+        "write": {
+            "device.coil1": {
+                "action": "05H",
+                "address": "0x0001"
+            },
+            "device.coil2": {
+                "action": "05H",
+                "address": "0x0002"
+            },
+            "device.coil1_coil2": {
+                "action": "0FH",
+                "address": "0x0001"
+            }
+        },
+        "timestamp": true,              //可选项包括：true "s" "ms" "ns", true默认为"s"
+        "read_reply_topic": "/{}/{}/upload",
+        "write_reply_topic": "/{}/{}/upload",
+        "topic": "/{}/{}/upload",
+        "mode": "cycle"
+    }
 }
 
-上述主动获取下发cmd的格式：
+主动获取下发cmd的格式：
 {
-	"action": "read",
-	"operation": ["readkkkg_status","readkkkg_volatage"],
-	"requestID": "123456"    // requestID可选
+    "action": "read",
+    "operation": ["read_status","read_temperature"],
+    "requestID": "123456"    // requestID可选
 }
 ```
 
@@ -145,8 +181,8 @@ Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
 
   - read：选填，定义需要读取的寄存器值并转换成json上报数据包，该项为数组
 
-    - commd：选填，读命令标识
     - action：必填，读功能码，可选为：**"01H","02H","03H","04H"**
+    - commd：选填，读命令标识，用于下发主动读取该属性
     - address：必填，读寄存器地址
     - number：选填，读寄存器个数。number=1，代表读一个16bit数据
     - prop_list：必填，设置modbus与json的对应关系，prop_list为数组，按先后顺序根据count值决定读取第几个寄存器或第几个位
@@ -165,21 +201,21 @@ Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
       - action：必填，写功能码，可选为：**"05H","06H","0FH","10H"**
       - address：必填，写寄存器地址
 
-    - "write_reply_topic"：选填，定义下行写入寄存器或线圈的响应topic
-    - “read_reply_topic”：选填，定义下行读寄存器或线圈的响应topic
-
   - timestamp: 选填（默认值为false）
       - 布尔型：true/false，上报数据是否带时间戳，时间戳为Unix时间戳（秒）
-      - 字符串：s/ms/ns，s为秒、ms为毫秒、ns为纳秒
+    - 字符串：s/ms/ns，s为秒、ms为毫秒、ns为纳秒
   - topic：必填，定义上报消息使用的topic，topic格式为”/{}/{}/xxx“，该Topic可以为系统Topic、自定义Topic、网关本地Topic
-  - mode：必填，采集数据模式，轮询模式 - “cycle”或者变化上报模式 - “onchange”，
+  - mode：必填，采集数据模式，轮询模式 - “cycle”或者变化上报模式 - “onchange”
+  - write_reply_topic：选填，定义下行写入寄存器或线圈的响应topic
+  - read_reply_topic：选填，定义下行主动读寄存器或线圈的响应topic
 
-####下行消息数据格式
+##### 主动读属性消息数据格式
+
   ```json
-  // 主动获取下发cmd的格式：
+// 主动获取属性下发cmd的格式：
 {
 	"action": "read",
-	"operation": ["readkkkg_status","readkkkg_volatage"],
+	"operation": ["read_status","read_temperature"],
 	"requestID": "123456"    // requestID可选
 }
   ```
@@ -195,14 +231,14 @@ Modbus驱动C语言版支持三种CPU架构：arm64、arm7、amd64
   // 上报数据根据prop_list中name的json path进行组包上报数据
   {
   	"data": {
-  		"coil1": true,
-  		"input_register": 10
+  		"status": true,
+  		"temperature": 10
   	},
   	"device": {
-  		"input1": true,
-  		"input2": true,
-  		"input3": true,
-  		"input4": true
+  		"input1_status": true,
+  		"input2_status": true,
+  		"input3_status": true,
+  		"input4_status": true
   	},
       "timestamp": 1597026387
   }
