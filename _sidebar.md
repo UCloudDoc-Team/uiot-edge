@@ -40,6 +40,7 @@
     - [C SDK使用](/uiot-edge/edge_development/subdev_driver_SDK/C_SDK_intro.md)
   - 官方驱动
     - [官方Modbus驱动(Python)](/uiot-edge/edge_development/offical_driver/offical_modbus_driver.md)
+    - [官方Modbus驱动(C)](/uiot-edge/edge_development/offical_driver/offical_modbus_driver_c.md)
     - [官方DLT645驱动(C)](/uiot-edge/edge_development/offical_driver/offical_dlt645_driver.md)
   
 - [云端API接口](/uiot-edge/api_list/README.md)  
