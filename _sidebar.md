@@ -25,8 +25,7 @@
   - 添加边缘计算
     - [概览](/uiot-edge/user_guide/edge_computing/overview.md)
     - [函数计算控制台操作指南](/uiot-edge/user_guide/edge_computing/function_console_guide) 
-    - [函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development.md)
-    - [运行函数计算](/uiot-edge/user_guide/edge_computing/function_running.md) 
+    - [函数功能开发及示例](/uiot-edge/user_guide/edge_computing/function_development.md)
   - 设置消息路由
     - [概览](/uiot-edge/user_guide/message_route/overview.md)
     - [添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route.md)

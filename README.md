@@ -29,15 +29,14 @@ UIoT Edge提供子设备接入、函数计算、消息路由、本地缓存断�
   - 添加边缘计算
     - [概览](/uiot-edge/user_guide/edge_computing/overview.md)
     - [函数计算控制台操作指南](/uiot-edge/user_guide/edge_computing/function_console_guide) 
-    - [函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development.md)
-    - [运行函数计算](/uiot-edge/user_guide/edge_computing/function_running.md) 
+    - [函数功能开发及示例](/uiot-edge/user_guide/edge_computing/function_development.md)
   - 设置消息路由
     - [概览](/uiot-edge/user_guide/message_route/overview.md)
     - [添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route.md)
     - [消息路由配置详解](/uiot-edge/user_guide/message_route/route_config_detail.md)    
   - 远程运维管理
     - [远程访问](/uiot-edge/user_guide/remote_maintaince/remote_access.md)
-
+  
 - [边缘端开发](/uiot-edge/edge_devplopment/README.md)
   - 子设备驱动SDK  
     - [概述](/uiot-edge/edge_development/subdev_driver_SDK/overview.md) 
