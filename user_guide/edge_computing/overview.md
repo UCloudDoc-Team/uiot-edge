@@ -15,14 +15,16 @@
 
 - 函数计算基于消息流动触发，当函数计算收到[消息路由](/uiot-edge/user_guide/message_route/overview)发送的数据时，立刻触发函数运行；
 - 函数计算里发布消息，通过调用函数计算SDK的`client.publish()`接口实现；
+- 函数计算支持访问redis；
+- 函数计算支持http client数据发送；
 - 函数计算目前支持Python3语言；
 
 
 
 ## 函数计算添加流程
 
-1. [添加函数计算](/uiot-edge/user_guide/message_route/add_msg_route)（实现用户需要的数据处理）到函数管理列表；
-2. [分配函数计算](/uiot-edge/user_guide/message_route/route_config_detail#分配函数)到目标边缘网关设备；
+1. 添加函数计算实现用户需要的数据处理）到函数管理列表；
+2. 分配函数计算到目标边缘网关设备；
 3. 配置消息路由设置目的地为函数计算，触发函数计算运行；
 4. 重新部署，下发更新到边缘网关，进行测试运行，函数计算部署后运行框图如下图。
 
