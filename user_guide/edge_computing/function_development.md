@@ -9,6 +9,7 @@
 本例完成当收到消息触发函数计算时，将收到的json数据包中的摄氏温度转换成华氏温度。
 
 ```python
+"""
 设备上云数据筛选示例
 1. 子设备往函数计算发送一个 json 消息，格式如下
 {
@@ -118,6 +119,35 @@ def handler(event, context):
 cli = function_sdk.EdgeClient()
 cli.publish(topic, payload)
 ```
+
+
+
+### 其他功能说明
+
+#### Redis访问
+```python
+cli = function_sdk.EdgeClient()
+cli.redis_client # 获取redis client
+```
+#### Http访问
+```python
+import requests # 用于http访问外部请求 
+```
+具体使用方法请参考[使用方法](https://requests.readthedocs.io/en/master)
+
+#### 获取函数配置
+```python
+cli = function_sdk.EdgeClient()
+cli.config # 用于获取函数的配置信息
+```
+
+**配置说明**
+函数配置可通过【函数配置】功能以json格式录入配置信息。【函数配置】功能位于网关已分配函数列表中的操作
+1、在【已分配函数列表】找到需要配置的函数，点击【函数配置】
+![修改函数](../../images/分配函数-5.png)
+2、在函数配置功能中进行函数配置
+![修改函数](../../images/分配函数-6.png)
+
 #### 定时运行
 
 函数计算支持定时运行功能，在函数配置中开启后，使用corn表达式进行时间表述。
