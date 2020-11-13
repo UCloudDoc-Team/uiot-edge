@@ -76,12 +76,12 @@ def handler(event, context):
 
 |字段|类型|描述|
 |-|-|-|
-|type|String|事件类型，这里为 "mqtt"|
-| topic   | String  | 消息topic                                                    |
-| source  | String  | 消息来源，和消息路由一致。<br>分为"本地路由", "IoT Core云平台" 和 "函数计算" 三种 |
-| payload | b:bytes | 消息体                                                       |
+|type|String|事件类型：消息路由触发为 "mqtt"，定时运行为“timer”|
+| topic   | String  | 消息topic（定时运行无需此字段）                                         |
+| source  | String  | 消息来源：和消息路由一致。分为"本地路由", "IoT Core云平台" 和 "函数计算" 三种（定时运行无需此字段） |
+| payload | b:bytes | 消息体（定时运行无需此字段）                                            |
 
-【示例】
+【示例】消息路由触发
 
 ```json
 {
@@ -91,6 +91,16 @@ def handler(event, context):
     'payload': b'{"id":1, "celsius":150}'
 }
 ```
+
+【示例】定时运行
+
+```json
+{
+    'type': 'tmier'
+}
+```
+
+
 
    - context：函数上下文，类型为dict
 
@@ -107,24 +117,6 @@ def handler(event, context):
     'timestamp': 1587886520,  //Unix时间戳
     'functionName': 'test1',
     'functionInvokeID': 'ac6cbf30-d9e7-4d50-8882-5b4648f6cfde'
-}
-```
-
-
-
-**使用定时运行**
-
-实现`handler(event, context)`接口时只需填写以下字段
-
-| 字段 | 类型   | 描述                                   |
-| ---- | ------ | -------------------------------------- |
-| type | String | 事件类型，这里为 "timer“（计时器类型） |
-
-【示例】
-
-```json
-{
-    'type': 'mqtt'
 }
 ```
 
