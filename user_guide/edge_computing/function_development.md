@@ -81,7 +81,6 @@ def handler(event, context):
 | source  | String  | 消息来源，和消息路由一致。<br>分为"本地路由", "IoT Core云平台" 和 "函数计算" 三种 |
 | payload | b:bytes | 消息体                                                       |
 
-
 【示例】
 
 ```json
@@ -110,6 +109,28 @@ def handler(event, context):
     'functionInvokeID': 'ac6cbf30-d9e7-4d50-8882-5b4648f6cfde'
 }
 ```
+
+
+
+**使用定时运行 **
+
+实现`handler(event, context)`接口时只需填写以下字段
+
+| 字段 | 类型   | 描述                                   |
+| ---- | ------ | -------------------------------------- |
+| type | String | 事件类型，这里为 "timer“（计时器类型） |
+
+【示例】
+
+```json
+{
+    'type': 'mqtt'
+}
+```
+
+
+
+
 
 #### 发送消息
 
