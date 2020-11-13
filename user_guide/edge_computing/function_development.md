@@ -179,6 +179,3 @@ cli.config # 用于获取函数的配置信息
 函数计算消息转发需要通过[添加消息路由](/uiot-edge/user_guide/message_route/add_msg_route)来实现。函数计算将发送的消息流转到[消息路由](/uiot-edge/user_guide/message_route/overview)，消息路由根据配置的路由规则发送给指定目的地，比如，另一个函数计算、本地设备、物联网云平台。
 
 
-```
-
-```
