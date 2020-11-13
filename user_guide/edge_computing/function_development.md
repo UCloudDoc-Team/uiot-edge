@@ -112,7 +112,7 @@ def handler(event, context):
 
 
 
-**使用定时运行 **
+**使用定时运行**
 
 实现`handler(event, context)`接口时只需填写以下字段
 
