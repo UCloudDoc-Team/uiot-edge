@@ -55,12 +55,9 @@ UIoT Edge软件包的安装仅依赖wget工具，其他的依赖会自动安装�
 
    - 登录网关设备，进入安装UIoT Edge的目录，粘贴并运行上述安装命令；
 
-     ```bash
-     # 脚本安装依赖`wget`工具，需要提前安装。
-     wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config 1pgf18ysv2w1g0dp 6ug7n9qnxd0safyx t77wpuvistiutxw5 && ./ucloud_iot_edge_process_proc.sh --start
-     ```
 
-     ![安装软件命令](../../images/安装软件命令.png)
+
+![安装软件命令](../../images/安装软件命令.png)
 
    - 系统会自动下载安装软件包，并启动UIoT Edge运行时；
    - 进入物联网边缘网关控制台，通过<请选择产品>，找到该网关设备，可以查看网关目前的状态为**在线**；
