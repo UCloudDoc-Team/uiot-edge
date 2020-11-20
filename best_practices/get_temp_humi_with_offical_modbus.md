@@ -158,7 +158,7 @@
    - 选择需要安装的目录，运行安装脚本进行安装：
 
      ```bash
-     wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process_proc.sh && chmod +x ucloud_iot_edge_process_proc.sh && ./ucloud_iot_edge_process_proc.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process_proc.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process_proc.sh --start
+     wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && chmod +x ucloud_iot_edge_process.sh && ./ucloud_iot_edge_process.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process.sh --start
      ```
      
 
@@ -261,7 +261,7 @@
 ![最佳实践子设备配置](../images/最佳实践子设备配置.png)
 
 5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，将payload中的temperature＞100摄氏度数据改成华氏度上报
-   
+  
 	
    ```python
    
@@ -292,23 +292,24 @@
    import logging
    
    
+   ```
 # 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
    cli = function_sdk.EdgeClient()
-   
+
    def handler(event, context):
        try:
            # 获取消息 topic
            topic = event["topic"]
            # payload 为 bytes 类型，需解码为字符串
            msg = json.loads(event["payload"].decode('utf-8'))
-   
+
            if msg["data"]["temperature"] > 25:
                # 转换为华氏温标
                msg["data"]["temperature"] = msg["data"]["temperature"] * 1.8 + 32
                payload = json.dumps(msg).encode('utf-8')
                # 向指定 topic 发送消息
                cli.publish(topic, payload)
-   
+       
        except Exception:
            logging.exception(context)
    ```
@@ -334,3 +335,5 @@
 
 
 
+
+   ```
