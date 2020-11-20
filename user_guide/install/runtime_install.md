@@ -24,12 +24,12 @@ linux推荐使用以下发行版本，自裁剪系统或其他发行版本将在
 
 #### 安装依赖
 
-uiot edge的安装以及正常运行需要依赖于wget、unzip、python、sshd等组件，请确保以下组件存在并且版本能够达到要求并且sshd服务处于启动状态。
+uiot edge的安装以及正常运行需要依赖于wget、unzip、python、sshd/dropbear等组件，请确保以下组件存在并且版本能够达到要求并且sshd服务处于启动状态。
 
-|依赖组件| 推荐版本 |
+|依赖组件| 版本要求 |
 |---|----|
-|sshd|OpenSSH|
-|python|python3.6.3+|
+|sshd/dropbear|-|
+|python|≥3.5.3|
 |wget|-|
 |unzip|-|
 
