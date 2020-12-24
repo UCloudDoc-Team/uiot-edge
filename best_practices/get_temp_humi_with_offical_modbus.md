@@ -177,7 +177,7 @@
 
 ![最佳实践安装软件成功](../images/最佳实践安装软件成功.png)
 
-4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动](/uiot-edge/edge_development/subdev_driver_SDK/offical_modbus_driver)
+4. 分配官方驱动，并进行驱动配置、子设备绑定、子设备配置，由于**本实践基于官方modbus驱动**，配置文件编写参考章节[官方Modbus驱动](/uiot-edge/edge_development/offical_driver/offical_modbus_driver_c)
 
    - 驱动配置
 

@@ -85,7 +85,7 @@ UIoT Edge基于UCloud物联网通信云平台UIoT Core，用户可以参考UIoT 
   分配函数需要在[函数计算](/uiot-edge/user_guide/edge_computing/function_development#添加函数)中先添加函数计算
 
   - <分配函数/移除>：分配函数计算给当前网关或从当前网关移除驱动
-  - 函数计算列表：参考[运行函数计算](/uiot-edge/user_guide/edge_computing/function_running)
+  - 函数计算列表：参考[函数功能开发及示例](/uiot-edge/user_guide/edge_computing/function_development.md) 
   - <修改函数>：修改函数计算代码
   - <移除>：移除已经分配的函数计算
 
