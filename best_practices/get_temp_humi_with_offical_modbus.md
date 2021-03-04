@@ -157,21 +157,21 @@
 
    - 选择需要安装的目录，运行安装脚本进行安装：
 
-     ```bash
+```bash
      wget -O http://uiotcore-edge.cn-sh2.ufileos.com/ucloud_iot_edge_process.sh && chmod +x ucloud_iot_edge_process.sh && ./ucloud_iot_edge_process.sh --install ARMv8_64 1.0 && ./ucloud_iot_edge_process.sh --config g9sftf0yrrdgbu6a dsc7thlyr091znps j1kewab7mmqv11ay && ./ucloud_iot_edge_process.sh --start
-     ```
-     
+```
 
-     
+
+​     
 - 启动-停止UIoT Edge Runtime
   
-  ```bash
+```bash
      ./ucloud_iot_edge_process.sh --start
      ./ucloud_iot_edge_process.sh --stop
-  ```
+```
+
   
-  
-  
+
 
 ![最佳实践安装软件](../images/最佳实践安装软件.png)
 
@@ -185,7 +185,7 @@
      
      - 配置action为写保持寄存器，写入data.temperature_fix，data.humidity_fix，data.temp_humi_fix下发的值；
      
-     ```json
+```json
      {
      	"channel": {
      		"ttyUSB0": {
@@ -238,9 +238,9 @@
      		"mode": "cycle"
      	}
      }
-     ```
-     
-     
+```
+
+
 - 子设备配置
   
   - 配置当前子设备使用的channel值；
@@ -248,14 +248,14 @@
      - 配置所属config类型；
      - 配置slave address；
      
-     ```json
-     {
-     	"channel": "ttyUSB0",
-     	"config": "dht20",
-     	"slave_address": 1
-     }
-     ```
-     
+```json
+{
+  "channel": "ttyUSB0",
+   "config": "dht20",
+   "slave_address": 1
+}
+```
+
 
 ![最佳实践驱动配置](../images/最佳实践驱动配置.png)
 ![最佳实践子设备配置](../images/最佳实践子设备配置.png)
@@ -263,7 +263,7 @@
 5. 参考[函数开发及添加](/uiot-edge/user_guide/edge_computing/function_development)，编写函数计算，将payload中的temperature＞100摄氏度数据改成华氏度上报
   
 	
-   ```python
+```python
    
    """
    设备上云数据筛选示例
@@ -291,17 +291,18 @@
    import json
    import logging
    
-   
-   ```
-# 如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
+```
+如果要使用 publish，需要先调用 EdgeClient 构造函数，初始化一个 client
+
+ ```
    cli = function_sdk.EdgeClient()
 
    def handler(event, context):
        try:
            # 获取消息 topic
-           topic = event["topic"]
+            topic = event["topic"]
            # payload 为 bytes 类型，需解码为字符串
-           msg = json.loads(event["payload"].decode('utf-8'))
+             msg = json.loads(event["payload"].decode('utf-8'))
 
            if msg["data"]["temperature"] > 25:
                # 转换为华氏温标
@@ -312,12 +313,12 @@
        
        except Exception:
            logging.exception(context)
-   ```
-   
+ ```
+
    ![最佳实践添加时间戳](../images/最佳实践添加函数.png)
-   
+
    ![最佳实践分配函数](../images/最佳实践分配函数.png)
-   
+
 6. 参考[设置消息路由](/uiot-edge/user_guide/message_route/overview)，添加消息路由转发数据到云端
 
    - 路由一：子设备 -> 函数计算
@@ -336,4 +337,3 @@
 
 
 
-   ```
